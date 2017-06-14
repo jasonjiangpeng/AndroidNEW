@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/bg_1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include  layout="@layout/sub_item_titel"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30px"
+        android:background="#F4F4F4" />
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="171px"
+        android:background="#FFF">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45px"
+            android:background="@null"
+            android:id="@+id/flight_edt1"
+            android:drawableLeft="@drawable/feijixxhdpi"
+            android:drawablePadding="20px"
+            android:hint="@string/flightmessage1"
+            android:inputType="text"
+            android:textSize="42px"
+            android:textColorHint="@color/mudiwhite4" />
+    </LinearLayout>
+    <View
+        android:layout_marginLeft="45px"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F4F4F4" />
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="177px"
+        android:background="#FFF">
+        <TextView
+            android:id="@+id/flight_choosetime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45px"
+            android:drawablePadding="30px"
+            android:textSize="42px"
+            android:hint="@string/ChooseTime"
+            android:textColorHint="@color/mudiwhite4"
+            android:drawableLeft="@drawable/mudidixxhdpi"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/flight_commit"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:background="#50b4fd"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:text="@string/commit" />
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:drawableLeft="@drawable/jinggaoicon"
+        android:drawablePadding="21px"
+        android:layout_marginTop="48px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="36px"
+        android:textColor="#9a9a9a"
+        android:text="@string/flightmessage"/>
+
+</LinearLayout>

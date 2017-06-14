@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="#FFFFFF">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:paddingLeft="33px"
+            android:drawablePadding="21px"
+            android:drawableLeft="@drawable/sousuoxxhdpi"
+            android:background="@drawable/rectangle_seek"
+            android:layout_gravity="center_vertical"
+            android:hint="@string/SearchDestination"
+            android:textColorHint="#ddd"
+            android:id="@+id/et1"
+            android:textSize="40px" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/list1">
+        </ListView>
+</LinearLayout>

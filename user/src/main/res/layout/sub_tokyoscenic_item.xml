@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/big1"
+    android:layout_height="@dimen/big1">
+<ImageView
+    android:layout_width="@dimen/big1"
+    android:layout_height="@dimen/big1"
+    android:background="@drawable/test"/>
+    <TextView
+        android:layout_width="@dimen/big1"
+        android:layout_height="@dimen/big1"
+        android:text="@string/PersonPassword"
+    />
+    <TextView
+        android:layout_width="@dimen/big1"
+        android:layout_height="@dimen/big1"
+        android:text="@string/PersonPassword"
+        />
+
+</FrameLayout>

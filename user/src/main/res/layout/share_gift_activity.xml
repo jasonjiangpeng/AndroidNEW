@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/sub_item_titel"/>
+    <RelativeLayout
+        android:background="#fff"
+        android:layout_margin="45px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/ImageView"
+            android:background="@drawable/g_b_fxxhdpi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_below="@+id/ImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="邀请好友一起，好友注册购票后"/>
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_below="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="您将获得100元优惠卷奖励"/>
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_alignBaseline="@+id/tv2"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="26px"
+            android:drawableRight="@drawable/g_a_qxxhdpi"
+            android:textColor="#E4AB4A"
+            android:text="奖励规则"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:background="#FEA620"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="@string/invitefriends"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="@string/app_name"/>
+</LinearLayout>

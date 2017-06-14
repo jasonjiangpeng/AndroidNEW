@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="138px"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/userGray3"/>
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_marginLeft="45px"
+            android:textSize="36px"
+            android:textColor="@color/mudiwhite1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/dingtrip"/>
+</LinearLayout>

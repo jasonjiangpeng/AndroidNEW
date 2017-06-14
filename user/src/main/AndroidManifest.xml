@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jh.rental.user">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--允许程序设置内置sd卡的写权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--允许程序获取网络状态-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--允许程序访问WiFi网络信息-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--允许程序读写手机状态和身份-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
+    <!--允许放问经纬度-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:hardwareAccelerated="true"
+        android:largeHeap="true"
+        android:name=".view.BaseApplication"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <meta-data android:name="design_width" android:value="1080">
+        </meta-data>
+        <meta-data android:name="design_height" android:value="1920">
+        </meta-data>
+      <!--<activity android:name=".view.actitity.login.Login_Act_">-->
+       <activity android:name=".view.actitity.internationnal.OrderDetails_Activity" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--注册账号-->
+        <activity android:name=".view.actitity.login.Register_Act_"/>
+       <activity android:name=".MainActivity_"/>
+        <!--密码修改-->
+        <activity android:name=".view.actitity.login.PasswordModify_Activity_"/>
+        <activity android:name=".view.actitity.CommonQuestion_Activity"/>
+        <activity android:name=".view.actitity.home.DifineBus_Act"/>
+        <!--搜索目的地列表-->
+        <activity android:name=".view.actitity.home.SearchDest_Act"/>
+        <activity android:name=".view.actitity.internationnal.AirportMessageActivity_"/>
+        <activity android:name=".view.actitity.internationnal.SeachDestination_Activity_"/>
+        <activity android:name=".view.actitity.internationnal.CalendarActivity_"/>
+        <activity android:name=".view.actitity.person.PersonMessage_Activity_"/>
+        <activity android:name=".view.actitity.person.IdeaCallBack_Activity_"/>
+        <activity android:name=".view.actitity.person.ShareGift_Activity_"/>
+        <activity android:name=".view.actitity.person.InvoiceService_Activity_"/>
+        <activity android:name=".view.actitity.person.MoreInformation_Activity_"/>
+        <activity android:name=".view.actitity.person.Setting_Activity_"/>
+        <activity android:name=".view.actitity.person.Collection_Activity"/>
+        <activity android:name=".view.actitity.home.CharteredBus_Act"/>
+        <!--接送机-->
+        <activity android:name=".view.actitity.home.PickUpAirport_Act"/>
+        <!--航班信息-->
+        <activity android:name=".view.actitity.home.FlightMessage_Act"/>
+        <!--航班信息子-->
+        <activity android:name=".view.actitity.home.FlightMessageSub_Act"/>
+           <!--专车接送-->
+
+        <activity android:name=".view.actitity.home.Carpooling_Act"/>
+        <activity android:name=".view.actitity.home.SearchDest_Act_"/>
+        <activity android:name=".view.actitity.internationnal.AddTrip1_Activity"/>
+        <activity android:name=".view.actitity.internationnal.AddTrip2_Activity"/>
+        <!--支付详情-->
+     <!--   <activity android:name=".view.actitity.internationnal.OrderDetails_Activity"/>-->
+        <activity android:name=".view.actitity.internationnal.SceneryCity_Activity"/>
+        <!--支付成功-->
+        <activity android:name=".view.actitity.internationnal.PaySuccess_Activity"/>
+        <!--订单详情举牌-->
+        <activity android:name=".view.actitity.internationnal.PickUpInformation_Activity"/>
+        <activity android:name=".view.actitity.person.Coupons_Activity_"/>
+        <activity android:name=".view.actitity.person.UserAgreement_Activity_"/>
+        <activity android:name=".view.actitity.person.RewardRules_Activity_"/>
+        <activity android:name=".view.actitity.person.ShareGift2_Activity_"/>
+        <activity android:name=".view.actitity.journey.AfterPayment_Act"/>
+        <activity android:name=".view.actitity.person.InvoiceService_Activity"/>
+        <activity android:name=".view.actitity.journey.AfterPayment_Act_"/>
+        <activity android:name=".view.actitity.journey.WaitingPayment_Activity_"/>
+
+        <!--专车接送-->
+        <activity android:name=".view.actitity.internationnal.TravelBooking_Activity"/>
+          <activity android:name=".view.actitity.journey.Refund_Activity_"/>
+        <activity android:name=".view.actitity.journey.AfterPayment_Activity_"/>
+        <!--查询目的地-->
+        <activity android:name=".view.actitity.internationnal.AddressLocation_Activity"/>
+        <!--订单生成页-->
+        <activity android:name=".view.actitity.internationnal.MakeAppointment_Activity"/>
+       <!--支付界面-->
+        <activity android:name=".view.actitity.journey.Payment_Activity_"/>
+        <!--分配司机界面-->
+        <activity android:name=".view.actitity.journey.AllotDriver_Activity_"/>
+
+        <activity android:name=".view.actitity.home.SceneryMessage_Act"/>
+        <activity android:name=".view.actitity.home.FlightMessage1_Act"/>
+        <!--航班信息-->
+        <activity android:name=".view.actitity.home.FlightMessage2_Act"/>
+        <!--目的地-->
+        <activity android:name=".view.actitity.internationnal.AddressLocationDes_Activity"/>
+        <activity android:name=".view.actitity.internationnal.AddressLocationPick_Activity"/>
+
+
+    </application>
+
+</manifest>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff">
+        <include layout="@layout/sub_item_titel"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120px"
+                android:background="#F4F4F4"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="10px"
+                    android:layout_marginLeft="45px"
+                    android:drawableLeft="@drawable/w_g_yxxhdpi"
+                    android:drawablePadding="30px"
+                    android:text="7小时56分钟订单将被取消"
+                    android:textColor="#F7931E"
+                    android:textSize="34px" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="141px"
+                android:layout_marginLeft="45px"
+                android:gravity="center_vertical"
+                android:text="行程信息"
+                android:textColor="#424242"
+                android:textSize="42px" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="#F4F4F4" />
+
+            <com.jh.rental.user.view.widget.TravelInformationItemView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="#F4F4F4" />
+
+            <com.jh.rental.user.view.widget.PassengerItemView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30px"
+                android:layout_alignParentBottom="true"
+                android:background="#F4F4F4" />
+
+            <com.jh.rental.user.view.widget.OtherInformationItemView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30px"
+                android:layout_alignParentBottom="true"
+                android:background="#F4F4F4" />
+
+            <com.jh.rental.user.view.widget.CostItemView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30px"
+                android:layout_alignParentBottom="true"
+                android:background="#F4F4F4" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="120px"
+                android:layout_marginTop="50px"
+                android:background="#fff"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="468px"
+                    android:layout_height="132px"
+                    android:layout_marginRight="20px"
+                    android:background="@drawable/w_g_zxxhdpi"
+                    android:text="@string/consult"
+                    android:textColor="#48B2F9" />
+
+                <Button
+                    android:layout_width="468px"
+                    android:layout_height="132px"
+                    android:layout_marginLeft="20px"
+                    android:background="@drawable/rectangle_red"
+                    android:text="@string/ContinuePay"
+                    android:textColor="#FFF" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

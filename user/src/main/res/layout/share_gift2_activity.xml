@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+    <include layout="@layout/sub_item_titel" />
+
+        <ImageView
+            android:id="@+id/ImageView"
+            android:background="@drawable/g_b_fxxhdpi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_below="@+id/ImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="邀请好友一起，好友注册购票后"/>
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_below="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="您将获得100元优惠卷奖励"/>
+        <EditText
+            android:gravity="center"
+            android:background="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="120px"
+            android:hint="@string/YourPhoneNumber"/>
+
+    <Button
+        android:id="@+id/button"
+        android:background="@drawable/rectangle_blue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="@string/getcoupon"/>
+
+    <ImageView
+        android:layout_marginTop="30px"
+        android:background="@drawable/g_b_bxxhdpi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="长按二维码关注公众号体验乘车"/>
+</LinearLayout>

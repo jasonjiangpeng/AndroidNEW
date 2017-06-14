@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="1100px"
+        android:background="#fff">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="720px"
+            android:background="@drawable/s_axxhdpi" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="66px"
+            android:textColor="#fff"
+            android:text="东京"
+            android:textStyle="bold"
+            android:layout_marginBottom="60px"
+            android:layout_above="@+id/lineListItemView"
+            android:layout_centerHorizontal="true" />
+        <com.jh.rental.user.view.widget.LineListItemView
+            android:background="@drawable/rectangle_solid2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ll"
+            android:layout_marginBottom="55px"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/lineListItemView" />
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="141px"
+            android:layout_alignParentBottom="true"
+            android:background="#fff"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/rl_area"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/tv_area"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/type"
+                    android:textColor="#424242"
+                    android:textSize="42px"
+                    android:textStyle="bold"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+
+                <ImageView
+                    android:id="@+id/iv_area"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20px"
+                    android:layout_toEndOf="@+id/tv_area"
+                    android:background="@drawable/w_g_pxxhdpi" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_day"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/day"
+                    android:textColor="#424242"
+                    android:textSize="42px"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/iv_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20px"
+                    android:layout_toEndOf="@+id/tv_day"
+                    android:background="@drawable/w_g_pxxhdpi" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_theme"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_theme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/theme"
+                    android:textColor="#424242"
+                    android:textSize="42px"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/iv_theme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20px"
+                    android:layout_toEndOf="@+id/tv_theme"
+                    android:background="@drawable/w_g_pxxhdpi" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

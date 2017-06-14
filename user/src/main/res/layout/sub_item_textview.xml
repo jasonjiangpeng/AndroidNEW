@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/des_sub_liner"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:layout_height="201px">
+    <ImageView
+        android:layout_width="4dp"
+        android:layout_height="201px"
+        android:visibility="gone"
+        android:id="@+id/sub_img"
+        android:background="@color/mudiwhite1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="201px"
+        android:gravity="center"
+        android:id="@+id/sub_text"
+        android:textColor="@color/userBlack"
+        android:text="@string/hot"/>
+</LinearLayout>

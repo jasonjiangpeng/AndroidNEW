@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<GridView
+    android:paddingLeft="@dimen/small2"
+    android:paddingRight="@dimen/small2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/small1"
+    android:numColumns="3"
+    android:horizontalSpacing="@dimen/small1"
+    android:verticalSpacing="@dimen/small1"
+    android:stretchMode="columnWidth"
+    android:id="@+id/gridview">
+</GridView>
+</LinearLayout>

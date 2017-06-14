@@ -1,0 +1,52 @@
+<resources>
+        <string name="sans_serif" translatable="false" >sans-serif</string>
+    <string name="app_name">User</string>
+    <string name="home">home</string>
+    <string name="destination">目的地</string>
+    <string name="consult">咨询</string>
+    <string name="journey">行程</string>
+    <string name="my">我的</string>
+    <string name="PersonPhone">手机</string>
+    <string name="PersonName">姓名</string>
+    <string name="PersonSex">性别</string>
+    <string name="PersonPhoto">图像</string>
+    <string name="PersonPassword">密码设置</string>
+    <string name="password">密码</string>
+    <string name="passwordMessage1">输入至少6位密码</string>
+    <string name="confirmpassword">确定密码</string>
+    <string name="passwordMessage2">重新输入密码</string>
+    <string name="commit">提交</string>
+    <string name="PhoneNumber">手机号</string>
+    <string name="AuthCode">验证码</string>
+    <string name="GetAuthCode">获取验证码</string>
+    <string name="inputpassword">输入密码</string>
+    <string name="inputphone">输入手机号</string>
+    <string name="inputauthcode">输入验证码</string>
+    <string name="settingpassword">设置密码</string>
+    <string name="resumeload">重新输入</string>
+    <string name="invitefriends">邀请好友</string>
+    <string name="getcoupon">领取优惠券</string>
+    <string name="seachdestination">搜索目的地</string>
+    <string name="cancel">取消</string>
+    <string name="seachhistory">搜索历史</string>
+    <string name="clear">清除</string>
+    <string name="citycustombus">市内包车游</string>
+    <string name="crosscitycustombus">跨城定制游</string>
+    <string name="showcardmessage">举牌信息</string>
+    <string name="sure">确定</string>
+    <string name="payfail">支付失败</string>
+    <string name="ordercancel">订单取消</string>
+    <string name="orderpaycancel">订单支付取消</string>
+    <string name="searchresult">搜索结果</string>
+    <string name="searchresultmessage">与“result”相关商品125件</string>
+    <string name="mycollect">我的收藏</string>
+    <string name="discountcoupon">优惠券</string>
+    <string name="billquestion">发票问题</string>
+    <string name="comenquestion">常见问题</string>
+    <string name="sharegift">分享有礼</string>
+    <string name="userporocpol">用户协议</string>
+    <string name="ideoback">意见反馈</string>
+    <string name="contactservice">联系客服</string>
+    <string name="sos">紧急电话</string>
+
+</resources>

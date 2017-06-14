@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="userAPP">
+        <attr name="tvTex" format="string" />
+        <attr name="etTex" format="string"></attr>
+    </declare-styleable>
+    <declare-styleable name = "LoopNewsView">
+        <attr name="dot_size" format="dimension"/>
+    </declare-styleable>
+</resources>

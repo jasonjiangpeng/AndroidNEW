@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+        <include layout="@layout/sub_item_titel"/>
+        <View
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F4F4F4"/>
+        <com.jh.rental.user.view.widget.SearchView
+            android:layout_marginLeft="45px"
+            android:layout_marginRight="45px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F4F4F4"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white3"
+            android:orientation="horizontal">
+                <ListView
+                    android:id="@+id/rv_left_area"
+                    android:layout_width="219px"
+                    android:background="@color/mudiwhite3"
+                    android:scrollbars="none"
+                    android:layout_height="wrap_content">
+                </ListView>
+
+                <GridView
+                    android:id="@+id/destination_gridview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="25px"
+                    android:horizontalSpacing="20px"
+                    android:verticalSpacing="20px"
+                    android:numColumns="2">
+
+                </GridView>
+        </LinearLayout>
+
+</LinearLayout>

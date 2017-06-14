@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="CommonQuestion_Activity">
+        <item>专车相关问题</item>
+        <item>包车相关问题</item>
+        <item>送机相关问题</item>
+        <item>接机相关问题</item>
+        <item>特价车相关问题</item>
+        <item>订单问题</item>
+        <item>发票问题</item>
+        <item>其他问题</item>
+    </array>
+    <array name="pickup_airport">
+        <item >接机</item>
+        <item >送机</item>
+    </array>
+    <array name="pickup_airport1">
+        <item >接机</item>
+        <item >送机</item>
+        <item >送机1</item>
+    </array>
+    <array name="collection_airport">
+        <item >线路</item>
+        <item >景点</item>
+    </array>
+    <array name="chartered_bus">
+        <item >市内定制游</item>
+        <item >跨城定制游</item>
+    </array>
+    <array name="scenery_city">
+        <item >东京景区</item>
+        <item >其他景区</item>
+    </array>
+    <string-array name="scenery_message" >
+        <item>行程安排</item>
+        <item>行程特色</item>
+        <item>其他说明</item>
+        <item>用户评价</item>
+    </string-array>
+    <string-array name="test">
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+        <item>tian</item>
+    </string-array>
+    <string-array name="serviceType">
+        <item>其他</item>
+        <item>本地包车</item>
+        <item>专车</item>
+        <item>接机</item>
+        <item>送机</item>
+        <item>拼车</item>
+        <item>包车</item>
+    </string-array>
+</resources>

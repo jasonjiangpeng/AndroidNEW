@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/sub_item_titel"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mudiwhite4"/>
+    <EditText
+        android:id="@+id/register_number"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@null"
+
+        android:drawableBottom="@drawable/linecolor1"
+        android:hint="@string/inputphone"
+        android:inputType="number"
+        android:textColorHint="@color/mudiwhite4" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mudiwhite4"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/register_autocode"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableBottom="@drawable/linecolor1"
+            android:hint="@string/inputAuthCode"
+            android:inputType="number"
+            android:textColorHint="@color/mudiwhite4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="45px"
+            android:gravity="center"
+            android:id="@+id/register_autocodetv"
+            android:text="@string/GetAuthCode"
+            android:textColor="#4CB2FF" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mudiwhite4"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:id="@+id/register_password"
+            android:hint="@string/settingpassword"
+            android:background="@null"
+            android:inputType="textPassword"
+            android:drawableBottom="@drawable/linecolor1"
+            android:textColorHint="@color/mudiwhite4"
+            />
+        <CheckBox
+            android:layout_width="60px"
+            android:layout_height="42px"
+            android:background="@drawable/passwordedt"
+            android:button="@null"
+            android:id="@+id/registeri9"
+            android:layout_marginRight="45px"
+            android:checked="false"
+            android:layout_gravity="end|center_vertical"/>
+    </FrameLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mudiwhite4"/>
+
+    <Button
+        android:id="@+id/register_login"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:background="#CCCCCC"
+        android:gravity="center"
+        android:text="@string/register"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/register_oldnumber"
+        android:layout_marginTop="93px"
+        android:textSize="65px"
+        android:textColor="@color/textcolor5"
+        android:text="@string/yiyouzhanghao"
+
+        />
+</LinearLayout>

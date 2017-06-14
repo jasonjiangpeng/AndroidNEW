@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <Button
+        android:textColor="@color/userOrange2"
+        android:textSize="48px"
+        android:text="@string/ContinueAdd"
+        android:layout_marginTop="45px"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_rim"/>
+    <Button
+        android:layout_marginBottom="66px"
+        android:textColor="#fff"
+        android:textSize="48px"
+        android:text="@string/complete"
+        android:layout_marginTop="45px"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/w_g_oxxhdpi"/>
+</LinearLayout>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+        <include layout="@layout/sub_item_titel"/>
+        <LinearLayout
+            android:layout_marginTop="30px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#fff">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:drawableLeft="@drawable/qiicon"
+                    android:drawablePadding="30px"
+                    android:layout_marginLeft="45px"
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:textSize="42px"
+                    android:id="@+id/pickabc1"
+                    android:textColor="#424242"
+                    android:text="伊瑟拉国际酒店"/>
+                <View
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#F4F4F4"
+                    android:layout_marginLeft="45px"/>
+
+                <TextView
+                    android:gravity="center_vertical"
+                    android:drawableLeft="@drawable/jingicon"
+                    android:drawablePadding="30px"
+                    android:layout_marginLeft="45px"
+                    android:id="@+id/pickabc2"
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:textSize="42px"
+                    android:textColor="#424242"
+                    android:text="东京塔"/>
+
+                <View
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#F4F4F4"
+                    android:layout_marginLeft="45px"/>
+
+                <TextView
+                    android:gravity="center_vertical"
+                    android:drawableLeft="@drawable/zhongicon"
+                    android:drawablePadding="30px"
+                    android:layout_marginLeft="45px"
+                    android:id="@+id/pickabc3"
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:textSize="42px"
+                    android:textColor="#424242"
+                    android:text="浅草寺"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="30px"
+            android:background="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="141px"
+            android:gravity="center"
+            android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                        <TextView
+                            android:drawableLeft="@drawable/renshuxxhdpi"
+                            android:drawablePadding="30px"
+                            android:layout_marginLeft="45px"
+                            android:id="@+id/pickabc4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="42px"
+                            android:textColor="#424242"
+                            android:text="3人"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                        <TextView
+                            android:drawableLeft="@drawable/childicon"
+                            android:drawablePadding="30px"
+                            android:layout_marginLeft="45px"
+                            android:id="@+id/pickabc5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="42px"
+                            android:textColor="#424242"
+                            android:text="1人"/>
+                </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_marginLeft="45px"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F4F4F4"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="141px"
+            android:background="#fff"
+            android:gravity="center"
+            android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45px"
+                            android:drawableLeft="@drawable/caricon"
+                            android:id="@+id/pickabc6"
+                            android:drawablePadding="30px"
+                            android:text="艾尔法10系（7座）"
+                            android:textColor="#424242"
+                            android:textSize="42px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45px"
+                            android:drawableLeft="@drawable/badgeicon"
+                            android:drawablePadding="30px"
+                            android:text="4件"
+                            android:id="@+id/pickabc7"
+                            android:textColor="#424242"
+                            android:textSize="42px" />
+                </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_marginLeft="45px"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F4F4F4"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="141px"
+            android:background="#fff"
+            android:gravity="center"
+            android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45px"
+                            android:drawableLeft="@drawable/shijianicon"
+                            android:drawablePadding="30px"
+                            android:id="@+id/pickabc8"
+                            android:text="2017/5/12 9:30"
+                            android:textColor="#424242"
+                            android:textSize="42px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45px"
+                            android:drawableLeft="@drawable/huanchengicon"
+                            android:drawablePadding="30px"
+                            android:text="换乘车人"
+                            android:id="@+id/pickabc9"
+                            android:textColor="#424242"
+                            android:textSize="42px" />
+                </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:background="#fff"
+            android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="150px"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45px"
+                            android:drawableLeft="@drawable/jupaiicon"
+                            android:drawablePadding="20px"
+                            android:text="需要举牌"
+                            android:textColor="#424242"
+                            android:textSize="42px" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10px"
+                            android:layout_weight="1"
+                            android:text="（举牌增加100元费用）"
+                            android:textColor="#9a9a9a"
+                            android:textSize="34px" />
+
+                        <ImageView
+                            android:layout_width="141px"
+                            android:layout_height="69px"
+                            android:layout_marginRight="45px"
+                            android:background="@drawable/rectangle_blue"
+                            android:text="@string/sure" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="132px"
+                    android:layout_marginLeft="45px"
+                    android:layout_marginRight="45px"
+                    android:layout_marginBottom="20px"
+                    android:background="#F7F7F7">
+                        <EditText
+                            android:layout_marginLeft="30px"
+                            android:id="@+id/editText"
+                            android:layout_width="match_parent"
+                            android:layout_height="132px"
+                            android:hint="输入举牌信息"
+                            android:textSize="34px"
+                            android:background="@null"
+                            android:lines="2" />
+                </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="30px"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/jinggaoicon"
+            android:drawablePadding="20px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="42px"
+            android:textColor="#9a9a9a"
+            android:text="航班延误免费等"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_marginTop="30px"
+            android:layout_marginLeft="45px"
+            android:layout_marginRight="45px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_blue"
+            android:textColor="#FFF"
+            android:textSize="50px"
+            android:text="@string/MakeAnAppointment"/>
+
+</LinearLayout>

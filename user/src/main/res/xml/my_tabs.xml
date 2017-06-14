@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs xmlns:android="http://schemas.android.com/apk/res/android">
+    <tab
+        id="@+id/tab_home"
+        icon="@drawable/home_selector_x"
+        title="@string/home"/>
+    <tab
+        id="@+id/tab_destination"
+        icon="@drawable/mudidinonexxhdpi"
+        title="@string/destination"/>
+    <tab
+        id="@+id/tab_consult"
+        icon="@drawable/zunxunnonexxhdpi"
+        title="@string/consult"/>
+    <tab
+        id="@+id/tab_journey"
+        icon="@drawable/xingchengnonexxhdpi"
+        title="@string/journey"/>
+
+    <tab
+        id="@+id/tab_my"
+        icon="@drawable/menonexxhdpi"
+        title="@string/my"/>
+</tabs>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+    <include layout="@layout/sub_item_titel"/>
+
+    <TextView
+        android:layout_marginLeft="45px"
+        android:textSize="46px"
+        android:textColor="@color/black1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ServiceType"/>
+
+    <RadioGroup
+        android:layout_marginTop="40px"
+        android:layout_marginBottom="40px"
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:layout_marginLeft="69px"
+            android:layout_marginRight="36px"
+            android:id="@+id/electronic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/userGray"
+            android:textSize="40px"
+            android:text="@string/ElectronicInvoice"
+            android:background="@drawable/g_b_cxxhdpi"
+            android:gravity="center"
+            android:button="@null"/>
+        <RadioButton
+            android:layout_marginRight="69px"
+            android:layout_marginLeft="36px"
+            android:id="@+id/PaperInvoice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/userGray"
+            android:textSize="40px"
+            android:text="@string/PaperInvoice"
+            android:background="@drawable/g_b_c_1xxhdpi"
+            android:gravity="center"
+            android:button="@null"/>
+    </RadioGroup>
+
+    <android.support.v4.view.ViewPager
+        android:layout_marginLeft="45px"
+        android:layout_marginRight="45px"
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>

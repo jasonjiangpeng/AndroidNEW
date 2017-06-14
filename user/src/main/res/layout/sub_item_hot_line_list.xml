@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="10px"
+                android:layout_marginTop="20px"
+                android:layout_marginBottom="40px">
+
+    <ImageView
+        android:id="@+id/iv_img"
+        android:layout_width="390px"
+        android:layout_height="264px"
+        android:background="@drawable/fushishanbigxxhdpi" />
+
+    <RelativeLayout
+        android:layout_marginLeft="20px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_marginLeft="10px"
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:textColor="#424242"
+            android:text="@string/attractions"
+            android:textSize="42px" />
+
+        <TextView
+            android:layout_marginLeft="10px"
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView"
+            android:layout_marginTop="26px"
+            android:textSize="36px"
+            android:textColor="#9a9a9a"
+            android:text="@string/buy" />
+
+        <RelativeLayout
+            android:layout_below="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="55px">
+
+            <TextView
+                android:id="@+id/tv_original_price"
+                android:layout_marginLeft="10px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="34px"
+                android:textColor="#9a9a9a"
+                android:text="原价:￥998" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FF7D5A"
+                android:text="@string/PresentPrice"
+                android:textSize="46px"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

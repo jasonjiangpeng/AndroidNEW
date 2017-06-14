@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:userAPP="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="20px"
+    android:layout_marginRight="20px">
+
+    <include layout="@layout/sub_item_titel"/>
+
+    <com.jh.rental.user.view.widget.InputBoxItemView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        userAPP:tvTex="@string/descr"
+        userAPP:etTex="@string/InputDescr" />
+    <com.jh.rental.user.view.widget.InputBoxItemView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        userAPP:tvTex="@string/TaxpayerIdentificationNumber"
+        userAPP:etTex="@string/InputTaxpayerIdentificationNumber" />
+    <com.jh.rental.user.view.widget.InputBoxItemView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        userAPP:tvTex="@string/AddressPhone"
+        userAPP:etTex="@string/InputAddressPhone" />
+    <com.jh.rental.user.view.widget.InputBoxItemView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        userAPP:tvTex="@string/BankAccount"
+        userAPP:etTex="@string/InputBankAccount" />
+
+    <Button
+        android:layout_marginTop="20px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#CCCCCC"
+        android:textColor="#FFF"
+        android:textSize="66px"
+        android:text="@string/commit"/>
+</LinearLayout>

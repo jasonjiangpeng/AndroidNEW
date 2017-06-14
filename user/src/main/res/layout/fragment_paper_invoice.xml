@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:userAPP="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+        <TextView
+            android:layout_marginBottom="20px"
+            android:layout_marginTop="20px"
+            android:textSize="46px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black1"
+            android:text="@string/InvoiceDetails"/>
+        <com.jh.rental.user.view.widget.InputBoxItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            userAPP:tvTex="@string/company"
+            userAPP:etTex="@string/company" />
+        <com.jh.rental.user.view.widget.InputBoxItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            userAPP:tvTex="@string/InvoiceContent" />
+        <com.jh.rental.user.view.widget.InputBoxItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            userAPP:tvTex="@string/InvoiceContent"/>
+        <com.jh.rental.user.view.widget.InputBoxItemView
+            android:id="@+id/inputBox4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            userAPP:tvTex="@string/MoreInformation"
+            userAPP:etTex="@string/information" />
+
+        <TextView
+            android:layout_marginBottom="20px"
+            android:layout_marginTop="20px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="46px"
+            android:textColor="@color/black1"
+            android:text="@string/ConsigneeInformation"/>
+        <com.jh.rental.user.view.widget.InputBoxItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            userAPP:tvTex="@string/consignee"/>
+        <com.jh.rental.user.view.widget.InputBoxItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            userAPP:tvTex="@string/ContactPhone"/>
+        <com.jh.rental.user.view.widget.InputBoxItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            userAPP:tvTex="@string/place"/>
+        <com.jh.rental.user.view.widget.InputBoxItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            userAPP:tvTex="@string/DetailedSite"/>
+
+        <TextView
+            android:layout_marginBottom="20px"
+            android:layout_marginTop="20px"
+            android:textSize="46px"
+            android:textColor="@color/black1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/TaxPoint"/>
+        <TextView
+            android:layout_marginBottom="20px"
+            android:textSize="46px"
+            android:textColor="@color/black1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ModePayment"/>
+        <com.jh.rental.user.view.widget.InputBoxItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            userAPP:tvTex="@string/TypePayment"/>
+
+        <Button
+            android:layout_marginTop="20px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#CCCCCC"
+            android:textColor="#FFF"
+            android:textSize="66px"
+            android:text="@string/commit"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

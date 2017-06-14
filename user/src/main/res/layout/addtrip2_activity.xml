@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+        <include layout="@layout/sub_item_titel"/>
+
+        <LinearLayout
+            android:layout_marginTop="30px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#fff">
+
+                <TextView
+                    android:layout_marginLeft="45px"
+                    android:layout_marginTop="30px"
+                    android:layout_marginBottom="30px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/TripStartingPoint2"
+                    android:textColor="#424242"
+                    android:textSize="36px" />
+                <View
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#F4F4F4"
+                    android:layout_marginLeft="45px"/>
+
+                <EditText
+                    android:layout_marginLeft="45px"
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:textSize="42px"
+                    android:hint="@string/EnterStartingPoint"
+                    android:background="@null"
+                    android:textColorHighlight="#ddd"
+                    android:layout_centerVertical="true"/>
+
+                <View
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#F4F4F4"
+                    android:layout_marginLeft="45px"/>
+
+                <EditText
+                    android:layout_marginLeft="45px"
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:textSize="42px"
+                    android:hint="@string/ChooseTimeDeparture"
+                    android:background="@null"
+                    android:textColorHighlight="#ddd"
+                    android:layout_centerVertical="true"/>
+
+                <View
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#F4F4F4"
+                    android:layout_marginLeft="45px"/>
+
+                <EditText
+                    android:layout_marginLeft="45px"
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:textSize="42px"
+                    android:hint="@string/SelectEnd"
+                    android:background="@null"
+                    android:textColorHighlight="#ddd"
+                    android:layout_centerVertical="true"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_marginTop="60px"
+            android:layout_marginLeft="45px"
+            android:layout_marginRight="45px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#CCCCCC"
+            android:textColor="#FFF"
+            android:textSize="50px"
+            android:text="@string/sure"/>
+
+</LinearLayout>

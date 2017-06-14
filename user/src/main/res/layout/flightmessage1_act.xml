@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#f5f5f5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include  layout="@layout/sub_item_titel"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30px"
+        android:background="#F4F4F4" />
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFF">
+         <EditText
+             android:layout_width="match_parent"
+             android:layout_height="177px"
+             android:layout_marginLeft="45px"
+             android:drawablePadding="30px"
+             android:id="@+id/et_flightNum"
+             android:textSize="42px"
+             android:hint="@string/flightmessage1"
+             android:background="@null"
+             android:textColorHint="@color/mudiwhite4"
+             android:drawableLeft="@drawable/feijixxhdpi"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="1dp"
+        android:visibility="gone"
+        android:id="@+id/ll_flightNum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFF">
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="140px"
+            android:layout_marginLeft="45px"
+            android:textAllCaps="true"
+            android:id="@+id/tv_flightNum"
+            android:textSize="42px"
+            android:text="xss"
+            android:textColorHint="@color/mudiwhite4"/>
+    </LinearLayout>
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:drawableLeft="@drawable/jinggaoicon"
+        android:drawablePadding="21px"
+        android:layout_marginTop="48px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="36px"
+        android:textColor="#9a9a9a"
+        android:text="@string/flightmessage"/>
+
+</LinearLayout>

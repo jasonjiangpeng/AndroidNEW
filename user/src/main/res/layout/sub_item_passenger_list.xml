@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="141px"
+        android:background="#fff"
+        android:orientation="vertical">
+    <TextView
+        android:drawableLeft="@drawable/m_d_hxxhdpi"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="45px"
+        android:drawablePadding="30px"
+        android:id="@+id/et_phone"
+        android:textSize="28px"
+        android:text="盘古(13816888888)"
+        android:textColor="@color/mudiwhite2"/>
+    <View
+        android:layout_marginLeft="45px"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#F4F4F4" />
+</LinearLayout>

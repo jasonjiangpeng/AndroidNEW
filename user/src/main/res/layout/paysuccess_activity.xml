@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+        <include layout="@layout/sub_item_titel"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2px"
+            android:background="#fff"
+            android:gravity="center"
+            android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="66px"
+                    android:background="@drawable/finishicon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="27px"
+                    android:text="@string/PaySuccess"
+                    android:textColor="#424242"
+                    android:textSize="42px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="60px"
+                    android:layout_marginTop="36px"
+                    android:text="@string/ViewOrderDetails"
+                    android:textColor="#50B4fd"
+                    android:textSize="42px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_import"
+            android:background="#fff"
+            android:layout_marginTop="30px"
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:orientation="vertical">
+                <EditText
+                    android:layout_marginTop="30px"
+                    android:layout_marginLeft="45px"
+                    android:background="#FFF"
+                    android:textSize="36px"
+                    android:textColorHint="#9a9a9a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/InputYourDescr"/>
+        </LinearLayout>
+
+        <LinearLayout
+           android:visibility="gone"
+            android:id="@+id/ll_conceal"
+            android:background="#fff"
+            android:layout_marginTop="30px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+                <TextView
+                    android:layout_marginLeft="45px"
+                    android:layout_marginTop="40px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#9a9a9a"
+                    android:textSize="36px"
+                    android:text="@string/DetailedPlanning"/>
+                <Button
+                    android:id="@+id/button_planning"
+                    android:background="@drawable/rectangle_rim"
+                    android:textColor="#F87C63"
+                    android:text="@string/planTrip"
+                    android:layout_margin="45px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/ll_HongKong"
+            android:background="#fff"
+            android:layout_marginTop="30px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+                <TextView
+                    android:layout_marginLeft="45px"
+                    android:layout_marginTop="40px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#9a9a9a"
+                    android:textSize="36px"
+                    android:text="@string/HongKongNote"/>
+                <Button
+                    android:id="@+id/button_uploadData"
+                    android:background="@drawable/rectangle_rim"
+                    android:textColor="#F87C63"
+                    android:text="@string/UploadData"
+                    android:layout_margin="45px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/payfinish"
+            android:layout_margin="45px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_blue"
+            android:textColor="#FFF"
+            android:textSize="48px"
+            android:text="@string/complete"/>
+
+</LinearLayout>

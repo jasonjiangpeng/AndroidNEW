@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <include layout="@layout/sub_item_titel"/>
+
+    <LinearLayout
+        android:layout_marginTop="2px"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_marginLeft="45px"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/PersonPhoto" />
+        <ImageView
+            android:layout_marginRight="45px"
+            android:background="@drawable/menonexxhdpi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <View
+        android:layout_marginLeft="45px"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/micro"
+        android:background="#F4F4F4"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_marginLeft="45px"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/PersonName" />
+        <LinearLayout
+            android:layout_marginRight="45px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:drawableRight="@drawable/g_a_qxxhdpi"
+                android:drawablePadding="26px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="36px"
+                android:textColor="#9a9a9a"
+                android:text="沉曦"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_marginLeft="45px"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/micro"
+        android:background="#F4F4F4"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_marginLeft="45px"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/PersonSex" />
+        <LinearLayout
+            android:layout_marginRight="45px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:drawableRight="@drawable/g_a_qxxhdpi"
+                android:drawablePadding="26px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="36px"
+                android:textColor="#9a9a9a"
+                android:text="男"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_marginLeft="45px"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/micro"
+        android:background="#F4F4F4"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_marginLeft="45px"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/PersonPhone"/>
+        <LinearLayout
+            android:layout_marginRight="45px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:drawableRight="@drawable/g_a_qxxhdpi"
+                android:drawablePadding="26px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="36px"
+                android:textColor="#9a9a9a"
+                android:text="15823492780"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_marginLeft="45px"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/micro"
+        android:background="#F4F4F4"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_marginLeft="45px"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/PersonPassword" />
+        <ImageView
+            android:layout_marginRight="45px"
+            android:background="@drawable/g_a_qxxhdpi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

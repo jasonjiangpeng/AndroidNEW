@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="mytextview">
+        <attr name="lefticon" format="reference"/>
+        <attr name="pricevalue" format="integer"/>
+        <attr name="iconsize" format="integer"/>
+        <attr name="textsize" format="integer"/>
+        <attr name="textcolor" format="color"/>
+        <attr name="texts" format="string"/>
+    </declare-styleable>
+
+</resources>

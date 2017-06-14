@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<include layout="@layout/sub_item_titel"/>
+    <EditText
+        android:layout_marginTop="1px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="5"
+        android:hint="@string/ideobackmessage"
+        android:background="#fff"
+        android:gravity="top"/>
+    <Button
+        android:layout_margin="45px"
+        android:background="@drawable/rectangle_blue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="@string/commit"/>
+</LinearLayout>
