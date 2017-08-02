@@ -5,20 +5,27 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.jh.rental.user.R;
+import com.jh.rental.user.db.User;
 import com.jh.rental.user.utils.jason.BaseContext;
+import com.jh.rental.user.utils.jason.Logger;
 import com.zhy.autolayout.utils.AutoUtils;
+
+import java.util.List;
 
 /**
  * Created by 俊辉出行 on 2017/6/10.
  */
 
-public class PassengerAdapter extends RecyclerView.Adapter<PassengerAdapter.PassengerHolder> {
-
-    Context mContext;
-    public PassengerAdapter(Context context) {
-        mContext=context;
+public class PassengerAdapter extends RecyclerView.Adapter<PassengerAdapter.PassengerHolder>  {
+    private Context mContext;
+    private List<User> userList;
+    public PassengerAdapter(Context context,    List<User> userList) {
+        this.mContext=context;
+        this.userList=userList;
     }
 
     @Override
@@ -28,25 +35,58 @@ public class PassengerAdapter extends RecyclerView.Adapter<PassengerAdapter.Pass
     }
 
     @Override
-    public void onBindViewHolder(PassengerHolder holder, int position) {
+    public void onBindViewHolder(PassengerHolder holder,final int position) {
+        String value=userList.get(position).getName()+"("+userList.get(position).getPhone()+")";
+        holder.ephone.setText(value);
         holder.mItemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (dataCallBack!=null){
+                    dataCallBack.dataCallback(userList.get(position));
+                }
+            }
+        });
+        holder.mItemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
 
+                if (dataCallBack!=null){
+                    dataCallBack.deledata(userList.get(position));
+                }
+                return false;
             }
         });
     }
     @Override
     public int getItemCount() {
-        return 3;
+        return userList.size();
+    }
+
+
+    private   DataCallBack  dataCallBack;
+
+    public DataCallBack getDataCallBack() {
+        return dataCallBack;
+    }
+
+    public void setDataCallBack(DataCallBack dataCallBack) {
+        this.dataCallBack = dataCallBack;
     }
 
     public class PassengerHolder extends RecyclerView.ViewHolder {
-        View mItemView;
+   private      View mItemView;
+       private TextView  ephone;
         public PassengerHolder(View itemView) {
             super(itemView);
-            mItemView = itemView;
+            this.mItemView = itemView;
+            this.ephone= (TextView) itemView.findViewById(R.id.et_phone);
             AutoUtils.autoSize(itemView);
         }
+    }
+
+
+    public interface  DataCallBack{
+        void  dataCallback(User user);
+        void  deledata(User user);
     }
 }

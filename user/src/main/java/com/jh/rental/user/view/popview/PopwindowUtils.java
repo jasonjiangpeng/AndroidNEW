@@ -1,6 +1,7 @@
 package com.jh.rental.user.view.popview;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,7 @@ import com.jh.rental.user.utils.jason.Logger;
  */
 
 public class PopwindowUtils {
-    private    PopupWindow  popupWindow;
+    private   static PopupWindow  popupWindow;
     private  static PopwindowUtils popwindowUtils;
 
     private PopwindowUtils() {
@@ -28,12 +29,16 @@ public class PopwindowUtils {
         }
         return popwindowUtils;
     }
-
+    public static void closePopWin(){
+         if (popupWindow!=null){
+             popupWindow.dismiss();
+         }
+    }
     private PopwindowUtils setPopupWindow(final View view, final Activity activity){
         popupWindow.setContentView(view);
         popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
         popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-        popupWindow.setOutsideTouchable(false);
+        popupWindow.setOutsideTouchable(true);
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {
@@ -44,7 +49,6 @@ public class PopwindowUtils {
     }
      public PopwindowUtils show(View view,View position,Activity a){
          if (popupWindow.isShowing()){
-             Logger.soutMessage("================");
              popupWindow.dismiss();
          }
         setPopupWindow(view,a);
@@ -67,7 +71,6 @@ public class PopwindowUtils {
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);//此行代码主要是解决在华为手机上半透明效果无效的bug
         }
         activity.getWindow().setAttributes(lp);
-
         return this;
     }
 }

@@ -11,8 +11,7 @@ import com.jh.rental.user.R;
 
 
 public class HotLineListItemView
-        extends LinearLayout
-{
+        extends LinearLayout {
     private static final String TAG = "HomeListItemView";
 
     public HotLineListItemView(Context context) {
@@ -26,8 +25,5 @@ public class HotLineListItemView
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.sub_item_hot_line_list, this);
-        TextView tvOriginalPrice = (TextView) findViewById(R.id.tv_original_price);
-        tvOriginalPrice.getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG|Paint.ANTI_ALIAS_FLAG);
     }
-
 }

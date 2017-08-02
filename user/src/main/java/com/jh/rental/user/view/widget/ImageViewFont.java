@@ -26,8 +26,11 @@ public class ImageViewFont extends android.support.v7.widget.AppCompatImageView 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawText("wosadad",getWidth()/2,getHeight()/2,getpain());
+        if (text!=null){
+            canvas.drawText(text,getWidth()/2,getHeight()/2,getpain());
+        }
     }
+  private String text;
     private Paint  getpain(){
         Paint paint =new Paint();
         paint.setAntiAlias(true);
@@ -36,4 +39,13 @@ public class ImageViewFont extends android.support.v7.widget.AppCompatImageView 
         return paint;
     }
 
+    public String getText() {
+
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+        invalidate();
+    }
 }

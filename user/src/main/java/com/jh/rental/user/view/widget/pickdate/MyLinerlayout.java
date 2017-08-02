@@ -18,11 +18,9 @@ public class MyLinerlayout extends LinearLayout {
     public MyLinerlayout(Context context) {
         super(context);
     }
-
     public MyLinerlayout(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
      View   inflate =  LayoutInflater.from(context).inflate(R.layout.pickdate, this);
-
         PickViewm2 pickViewm1= (PickViewm2) inflate.findViewById(R.id.jason1);
         PickViewm pickViewm5= (PickViewm) inflate.findViewById(R.id.jason5);
         PickViewm pickViewm6= (PickViewm) inflate.findViewById(R.id.jason6);

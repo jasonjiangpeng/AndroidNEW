@@ -1,12 +1,16 @@
 package com.jh.rental.user.presenter.net;
 
 import com.android.volley.Response;
-import com.google.gson.Gson;
-import com.google.gson.internal.Primitives;
+import com.jh.rental.user.api.ApiConstants;
+import com.jh.rental.user.bean.LoginBean;
 import com.jh.rental.user.presenter.gson.GsonUtlis;
 import com.jh.rental.user.utils.jason.Logger;
+import com.jh.rental.user.utils.jason.SnakebarUtils;
+import com.jh.rental.user.view.BaseApplication;
 
-import java.lang.reflect.Type;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 /**
  * Created by 骏辉出行 on 2017/6/7.
@@ -16,30 +20,56 @@ public class NetSucceed<T> implements Response.Listener<String> {
 
     private Class<T> tClass;
     private HolderData<T> holderData;
-    public NetSucceed(Class<T> tClass,HolderData<T> holderData) {
-      this.tClass=tClass;
-      this.holderData=holderData;
+    private boolean isJudge = false;
+
+    public NetSucceed(Class<T> tClass, HolderData<T> holderData) {
+        this(tClass, holderData, false);
     }
+
+    public NetSucceed(Class<T> tClass, HolderData<T> holderData, boolean isJudge) {
+        this.tClass = tClass;
+        this.holderData = holderData;
+        this.isJudge = isJudge;
+    }
+
+
     @Override
     public void onResponse(String response) {
-        if (response==null){
+        Logger.soutMessage(response);
+        if (response == null) {
             return;
         }
-        Logger.netSoutMessage(response);
-   /*     Logger.soutMessage(response);
-        Gson gson =new Gson();
-        Object o = gson.fromJson(response,  (Type)tClass);
-        holderData.holdData( Primitives.wrap(tClass).cast(o));*/
-
-        if (GsonUtlis.getJson(response,tClass)!=null){
-         //   T t=GsonUtlis.getJson(response,tClass);
-            holderData.holdData(GsonUtlis.getJson(response,tClass));
+        LoginBean smsBean = null;
+        if (isJudge) {
+            smsBean = GsonUtlis.getJson(response, LoginBean.class);
+            if (smsBean.getCode() != null && smsBean.getMsg() != null) {
+                holderData.holdData(null);
+            } else {
+                if (GsonUtlis.getJson(response, tClass) != null) {
+                    holderData.holdData(GsonUtlis.getJson(response, tClass));
+                }
+            }
+        } else {
+            if (response.startsWith("{")) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getString("msg") != null) {
+//                        SnakebarUtils.showToast(jsonObject.getString("msg").toString(), BaseApplication.currentActivity());
+                        if ("请先登录".equals(jsonObject.getString("msg"))) {
+                            ApiConstants.localCookie = null;
+                        }
+                        return;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            holderData.holdData(GsonUtlis.getJson(response, tClass));
         }
 
     }
-  public   interface HolderData<T>{
+
+    public interface HolderData<T> {
         void holdData(T bean);
     }
-/*    Object object = fromJson(json, (Type) classOfT);
-    return Primitives.wrap(classOfT).cast(object);*/
 }

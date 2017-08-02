@@ -18,8 +18,6 @@ import com.jh.rental.user.view.widget.InputBoxItemView;
  *  @描述：    TODO
  */
 public class ElectronicFragment extends BaseFragment implements View.OnClickListener {
-    private static final String TAG = "ElectronicFragment";
-
     @Override
     public View setView() {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_electronic_invoice, null);

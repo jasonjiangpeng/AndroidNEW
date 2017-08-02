@@ -1,5 +1,7 @@
 package com.jh.rental.user.bean.login;
 
+import com.jh.rental.user.view.actitity.login.Login_Act;
+
 /**
  * Created by 骏辉出行 on 2017/6/7.
  */
@@ -10,19 +12,19 @@ public class SmsBean {
      * message : 发送成功！
      */
 
-    private int code;
+    private String code;
     private String message;
 
-    public SmsBean(int code, String message) {
+    public SmsBean(String code, String message) {
         this.code = code;
         this.message = message;
     }
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

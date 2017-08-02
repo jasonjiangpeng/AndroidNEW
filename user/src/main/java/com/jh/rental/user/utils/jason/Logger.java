@@ -2,6 +2,8 @@ package com.jh.rental.user.utils.jason;
 
 import android.util.Log;
 
+import com.jh.rental.user.view.BaseApplication;
+
 /**
  * Created by 骏辉出行 on 2017/5/12.
  */
@@ -20,9 +22,31 @@ public class Logger {
         }
     }
     public static void soutMessage(Object message){
-        System.out.println("messageOut=========:"+message);
+        if (isdug){
+            if (BaseApplication.activities.size()>0){
+                System.out.println("messageOut=========:"+ BaseApplication.currentActivity().getClass().getName()+":::"+message);
+            }
+        }
+
+
     }
     public static void netSoutMessage(Object message){
-        System.out.println("netSoutMessage=========:"+message);
+        if (isdug){
+            System.out.println("netSoutMessage=========:"+ BaseApplication.currentActivity().getClass().getName()+":::"+message);
+        }
+
     }
+    public static void soutTestMessage(Object message){
+        if (isdug){
+            System.out.println("soutTestMessage=========:"+ BaseApplication.currentActivity().getClass().getName()+":::"+message);
+        }
+
+    }
+    public static void newTestMessage(Object message){
+        if (isdug){
+            System.out.println("newTestMessage=========:"+ BaseApplication.currentActivity().getClass().getName()+":::"+message);
+        }
+
+    }
+
 }

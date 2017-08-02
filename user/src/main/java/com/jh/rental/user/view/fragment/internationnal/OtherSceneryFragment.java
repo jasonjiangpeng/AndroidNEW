@@ -5,7 +5,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.jh.rental.user.view.adapter.internationnal.CitySceneryListAdapter;
 import com.jh.rental.user.view.adapter.internationnal.OtherSceneryListAdapter;
 import com.jh.rental.user.view.fragment.BaseListFragment;
 
@@ -23,5 +22,10 @@ public class OtherSceneryFragment extends BaseListFragment {
     @Override
     public LinearLayoutManager getLayout() {
         return new GridLayoutManager(getContext(), 3);
+    }
+
+    @Override
+    public void dataCallBack() {
+
     }
 }

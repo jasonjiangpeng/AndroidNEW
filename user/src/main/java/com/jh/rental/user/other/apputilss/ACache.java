@@ -487,10 +487,10 @@ public class ACache {
 	}
 
 	// =======================================
-	// ============= drawable 数据 读写 =============
+	// ============= scenphoto1 数据 读写 =============
 	// =======================================
 	/**
-	 * 保存 drawable 到 缓存中
+	 * 保存 scenphoto1 到 缓存中
 	 * 
 	 * @param key
 	 *            保存的key
@@ -502,12 +502,12 @@ public class ACache {
 	}
 
 	/**
-	 * 保存 drawable 到 缓存中
+	 * 保存 scenphoto1 到 缓存中
 	 * 
 	 * @param key
 	 *            保存的key
 	 * @param value
-	 *            保存的 drawable 数据
+	 *            保存的 scenphoto1 数据
 	 * @param saveTime
 	 *            保存的时间，单位：秒
 	 */
@@ -838,10 +838,10 @@ public class ACache {
 			if (drawable == null) {
 				return null;
 			}
-			// 取 drawable 的长宽
+			// 取 scenphoto1 的长宽
 			int w = drawable.getIntrinsicWidth();
 			int h = drawable.getIntrinsicHeight();
-			// 取 drawable 的颜色格式
+			// 取 scenphoto1 的颜色格式
 			Bitmap.Config config = drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
 					: Bitmap.Config.RGB_565;
 			// 建立对应 bitmap
@@ -849,7 +849,7 @@ public class ACache {
 			// 建立对应 bitmap 的画布
 			Canvas canvas = new Canvas(bitmap);
 			drawable.setBounds(0, 0, w, h);
-			// 把 drawable 内容画到画布中
+			// 把 scenphoto1 内容画到画布中
 			drawable.draw(canvas);
 			return bitmap;
 		}

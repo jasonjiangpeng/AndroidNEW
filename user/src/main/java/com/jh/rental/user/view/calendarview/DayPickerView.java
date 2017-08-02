@@ -22,9 +22,7 @@ public class DayPickerView extends RecyclerView {
     protected int mPreviousScrollState = 0;
     private TypedArray typedArray;
     private OnScrollListener onScrollListener;
-
     private DataModel dataModel;
-
     public DayPickerView(Context context) {
         this(context, null);
     }
@@ -53,7 +51,6 @@ public class DayPickerView extends RecyclerView {
                 if (child == null) {
                     return;
                 }
-
                 mPreviousScrollPosition = dy;
                 mPreviousScrollState = mCurrentScrollState;
             }
@@ -70,6 +67,7 @@ public class DayPickerView extends RecyclerView {
 
     protected void setUpListView() {
         setVerticalScrollBarEnabled(false);
+        //noinspection deprecation
         setOnScrollListener(onScrollListener);
         setFadingEdgeLength(0);
     }

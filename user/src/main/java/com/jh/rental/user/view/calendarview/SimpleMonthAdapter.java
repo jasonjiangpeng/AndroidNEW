@@ -346,12 +346,10 @@ public class SimpleMonthAdapter extends RecyclerView.Adapter<SimpleMonthAdapter.
     public static class CalendarDay implements Serializable, Comparable<CalendarDay> {
         private static final long serialVersionUID = -5456695978688356202L;
         private Calendar calendar;
-
         public int day;
         public int month;
         public int year;
         public String tag;
-
         public CalendarDay(Calendar calendar, String tag) {
             year = calendar.get(Calendar.YEAR);
             month = calendar.get(Calendar.MONTH);

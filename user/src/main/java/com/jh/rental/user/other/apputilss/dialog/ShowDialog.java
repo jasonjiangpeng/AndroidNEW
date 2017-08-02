@@ -4,7 +4,7 @@ package com.aotome202.lostjason.x103aotom.apputilss.dialog;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.drawable.ColorDrawable;
+import android.graphics.scenphoto1.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;

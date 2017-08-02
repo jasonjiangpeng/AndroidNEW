@@ -3,10 +3,11 @@ package com.jh.rental.user.view.factory;
 import android.support.v4.app.Fragment;
 
 import com.jh.rental.user.R;
-import com.jh.rental.user.view.fragment.ConsultFragment;
 import com.jh.rental.user.view.fragment.DestinationFragment;
+import com.jh.rental.user.view.fragment.HomeFragment;
 import com.jh.rental.user.view.fragment.HomeFragmentold;
 import com.jh.rental.user.view.fragment.JourneyFragment;
+import com.jh.rental.user.view.fragment.ConsultFragment;
 import com.jh.rental.user.view.fragment.MyFragment;
 
 /**
@@ -64,7 +65,8 @@ public class FragmentFactory {
     public Fragment getHomeFragment() {
       if (mHomeFragment == null||isupdata) {
             isupdata=false;
-            mHomeFragment = new HomeFragmentold();
+       //     mHomeFragment = new HomeFragmentold();
+            mHomeFragment = new HomeFragment();
 
         }
         return mHomeFragment;

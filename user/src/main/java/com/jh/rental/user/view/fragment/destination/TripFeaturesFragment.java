@@ -15,4 +15,9 @@ public class TripFeaturesFragment extends BaseListFragment {
     public RecyclerView.Adapter getAdapter() {
         return new TripFeaturesListAdapter(getContext());
     }
+
+    @Override
+    public void dataCallBack() {
+
+    }
 }

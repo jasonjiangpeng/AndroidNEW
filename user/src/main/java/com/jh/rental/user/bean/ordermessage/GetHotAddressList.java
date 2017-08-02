@@ -1,6 +1,6 @@
 package com.jh.rental.user.bean.ordermessage;
 
-import com.google.gson.annotations.SerializedName;
+import com.jh.rental.user.utils.jason.LoadDialog;
 
 /**
  * Created by 骏辉出行 on 2017/6/9.
@@ -9,101 +9,30 @@ import com.google.gson.annotations.SerializedName;
 public class GetHotAddressList {
 
     /**
-     * id : a1
-     * createBy : null
-     * createDate : 2017-06-06 07:21:56
-     * updateBy : null
-     * updateDate : null
-     * version : null
-     * isDeleted : 0
-     * cityId : 111
-     * adrName : 落马洲
-     * address : 就在华强北啊
-     * gdLng : 34.034432524
-     * gdLat : 34.034432524
-     * baiduLng : 34.034432524
-     * baiduLat : 34.034432524
-     * gugeLng : 34.034432524
-     * gugeLat : 34.034432524
+     * cityId : 0D25FB31E23F01B7E0532429030AA5CF
+     * cityName : 深圳
+     * adrName : 宝安机场
+     * address : 广东省深圳市宝安区深圳市宝安国际机场深圳宝安国际机场
+     * gdLng : 113.814549
+     * gdLat : 22.63336
+     * baiduLng : 113.821042698
+     * baiduLat : 22.639027438
+     * gugeLng : 113.814507122
+     * gugeLat : 22.63328002
      * type : 2
-     * new : false
      */
 
-    private String id;
-    private Object createBy;
-    private String createDate;
-    private Object updateBy;
-    private Object updateDate;
-    private Object version;
-    private String isDeleted;
     private String cityId;
+    private String cityName;
     private String adrName;
     private String address;
-    private double gdLng;
-    private double gdLat;
-    private double baiduLng;
-    private double baiduLat;
-    private double gugeLng;
-    private double gugeLat;
-    private int type;
-    @SerializedName("new")
-    private boolean newX;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Object getCreateBy() {
-        return createBy;
-    }
-
-    public void setCreateBy(Object createBy) {
-        this.createBy = createBy;
-    }
-
-    public String getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(String createDate) {
-        this.createDate = createDate;
-    }
-
-    public Object getUpdateBy() {
-        return updateBy;
-    }
-
-    public void setUpdateBy(Object updateBy) {
-        this.updateBy = updateBy;
-    }
-
-    public Object getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(Object updateDate) {
-        this.updateDate = updateDate;
-    }
-
-    public Object getVersion() {
-        return version;
-    }
-
-    public void setVersion(Object version) {
-        this.version = version;
-    }
-
-    public String getIsDeleted() {
-        return isDeleted;
-    }
-
-    public void setIsDeleted(String isDeleted) {
-        this.isDeleted = isDeleted;
-    }
+    private String gdLng;
+    private String gdLat;
+    private String baiduLng;
+    private String baiduLat;
+    private String gugeLng;
+    private String gugeLat;
+    private String type;
 
     public String getCityId() {
         return cityId;
@@ -111,6 +40,14 @@ public class GetHotAddressList {
 
     public void setCityId(String cityId) {
         this.cityId = cityId;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
     public String getAdrName() {
@@ -129,67 +66,59 @@ public class GetHotAddressList {
         this.address = address;
     }
 
-    public double getGdLng() {
+    public String getGdLng() {
         return gdLng;
     }
 
-    public void setGdLng(double gdLng) {
+    public void setGdLng(String gdLng) {
         this.gdLng = gdLng;
     }
 
-    public double getGdLat() {
+    public String getGdLat() {
         return gdLat;
     }
 
-    public void setGdLat(double gdLat) {
+    public void setGdLat(String gdLat) {
         this.gdLat = gdLat;
     }
 
-    public double getBaiduLng() {
+    public String getBaiduLng() {
         return baiduLng;
     }
 
-    public void setBaiduLng(double baiduLng) {
+    public void setBaiduLng(String baiduLng) {
         this.baiduLng = baiduLng;
     }
 
-    public double getBaiduLat() {
+    public String getBaiduLat() {
         return baiduLat;
     }
 
-    public void setBaiduLat(double baiduLat) {
+    public void setBaiduLat(String baiduLat) {
         this.baiduLat = baiduLat;
     }
 
-    public double getGugeLng() {
+    public String getGugeLng() {
         return gugeLng;
     }
 
-    public void setGugeLng(double gugeLng) {
+    public void setGugeLng(String gugeLng) {
         this.gugeLng = gugeLng;
     }
 
-    public double getGugeLat() {
+    public String getGugeLat() {
         return gugeLat;
     }
 
-    public void setGugeLat(double gugeLat) {
+    public void setGugeLat(String gugeLat) {
         this.gugeLat = gugeLat;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
-    }
-
-    public boolean isNewX() {
-        return newX;
-    }
-
-    public void setNewX(boolean newX) {
-        this.newX = newX;
     }
 }

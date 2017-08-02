@@ -6,9 +6,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.jh.rental.user.R;
+import com.jh.rental.user.constants.Constant;
 import com.jh.rental.user.utils.jason.ActivityUtils;
 import com.jh.rental.user.utils.jason.BaseContext;
-import com.jh.rental.user.utils.jason.Logger;
 import com.jh.rental.user.view.actitity.TitelBarAcitvity;
 
 /**
@@ -36,6 +36,7 @@ public class TravelBooking_Activity extends TitelBarAcitvity implements View.OnC
 
         switch (v.getId()) {
             case R.id.trave_button:
+                Constant.COUPON = 0;
                 ActivityUtils.nextActivity(OrderDetails_Activity.class,"indent",INDENT);
                 break;
         }

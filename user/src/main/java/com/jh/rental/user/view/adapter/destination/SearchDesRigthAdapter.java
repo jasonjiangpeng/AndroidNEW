@@ -8,11 +8,14 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 
 import com.jh.rental.user.R;
-import com.jh.rental.user.bean.CityData;
+import com.jh.rental.user.api.ApiConstants;
 import com.jh.rental.user.bean.OrderDetails;
-import com.jh.rental.user.bean.SimpleObject;
-import com.jh.rental.user.utils.jason.Logger;
+import com.jh.rental.user.bean.ordermessage.GetAreaAddressList;
+import com.jh.rental.user.db.flight.DBHistoryCity;
+import com.jh.rental.user.db.flight.HistoryCity;
+import com.jh.rental.user.utils.jason.ActivityUtils;
 import com.jh.rental.user.view.BaseApplication;
+import com.jh.rental.user.view.actitity.destination.Destination_Activity;
 import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
@@ -23,11 +26,11 @@ import java.util.List;
 
 public class SearchDesRigthAdapter extends BaseAdapter {
     Context context;
-    List<CityData> list;
+    List<GetAreaAddressList.AddressListBean> list;
     public SearchDesRigthAdapter(Context context) {
         this(context,null);
     }
-    public SearchDesRigthAdapter(Context context,    List<CityData> list) {
+    public SearchDesRigthAdapter(Context context,    List<GetAreaAddressList.AddressListBean> list) {
         this.context=context;
         this.list=list;
     }
@@ -57,20 +60,39 @@ public class SearchDesRigthAdapter extends BaseAdapter {
             AutoUtils.autoSize(convertView);
         }
        Button  button=(Button)convertView.findViewById(R.id.address1);
-
           if (list!=null){
-              button.setText(list.get(position).getCity());
+              String name = list.get(position).getName();
+              if (name.indexOf("(")!=-1){
+                  String name2 = name.substring(0, name.indexOf("("));
+                  button.setText(name2);
+              }else {
+                  button.setText(name);
+              }
           }
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                OrderDetails.getOrderDetails().setCity(list.get(position).getCity());
-                OrderDetails.getOrderDetails().setId(list.get(position).getId());
-                BaseApplication.finishActivity();
+                new Thread(){
+                    @Override
+                    public void run() {
+                        DBHistoryCity dbHistoryCity=new DBHistoryCity();
+                        HistoryCity historyCity =new HistoryCity(System.currentTimeMillis(),list.get(position).getId(),list.get(position).getName(),"null",
+                                String.valueOf( list.get(position).getGdLng()),String.valueOf(  list.get(position).getGdLat()));
+                        dbHistoryCity.replaceLove(historyCity);
+                    }
+                }.start();
+                if (ApiConstants.searchChoose==2){
+                    OrderDetails.getOrderDetails().setCity(list.get(position).getName());
+                    OrderDetails.getOrderDetails().setId(list.get(position).getId());
+                    BaseApplication.finishActivity();
+                }else {
+                    OrderDetails.setValue(list.get(position).getId(),list.get(position).getImgUrl());
+                    ActivityUtils.nextActivity(Destination_Activity.class,"cityName",list.get(position).getName());
+                }
             }
         });
         return convertView;
     }
+
 
 }

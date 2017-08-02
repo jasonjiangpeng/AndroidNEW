@@ -54,7 +54,7 @@ public class ToolResource {
     static {
         try {
             CDrawable = Class
-                    .forName(mContext.getPackageName() + ".R$drawable");
+                    .forName(mContext.getPackageName() + ".R$scenphoto1");
             CLayout = Class.forName(mContext.getPackageName() + ".R$layout");
             CId = Class.forName(mContext.getPackageName() + ".R$id");
             CAnim = Class.forName(mContext.getPackageName() + ".R$anim");

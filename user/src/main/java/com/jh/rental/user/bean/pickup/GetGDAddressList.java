@@ -1,7 +1,5 @@
 package com.jh.rental.user.bean.pickup;
 
-import java.io.Serializable;
-
 /**
  * Created by 骏辉出行 on 2017/6/13.
  */
@@ -33,23 +31,23 @@ public class GetGDAddressList   {
 
     private String id;
     private String name;
-    private Object imgUrl;
-    private int orderBy;
-    private double gdLng;
-    private double gdLat;
-    private double baiduLng;
-    private double baiduLat;
-    private double gugeLng;
-    private double gugeLat;
-    private int isHot;
-    private int state;
-    private int level;
-    private Object parentId;
-    private long createDate;
+    private String imgUrl;
+    private String orderBy;
+    private String gdLng;
+    private String gdLat;
+    private String baiduLng;
+    private String baiduLat;
+    private String gugeLng;
+    private String gugeLat;
+    private String isHot;
+    private String state;
+    private String level;
+    private String parentId;
+    private String createDate;
     private String createBy;
-    private Object updateDate;
-    private Object updateBy;
-    private int version;
+    private String updateDate;
+    private String updateBy;
+    private String version;
     private String isDeleted;
 
     public String getId() {
@@ -68,107 +66,107 @@ public class GetGDAddressList   {
         this.name = name;
     }
 
-    public Object getImgUrl() {
+    public String getImgUrl() {
         return imgUrl;
     }
 
-    public void setImgUrl(Object imgUrl) {
+    public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
     }
 
-    public int getOrderBy() {
+    public String getOrderBy() {
         return orderBy;
     }
 
-    public void setOrderBy(int orderBy) {
+    public void setOrderBy(String orderBy) {
         this.orderBy = orderBy;
     }
 
-    public double getGdLng() {
+    public String getGdLng() {
         return gdLng;
     }
 
-    public void setGdLng(double gdLng) {
+    public void setGdLng(String gdLng) {
         this.gdLng = gdLng;
     }
 
-    public double getGdLat() {
+    public String getGdLat() {
         return gdLat;
     }
 
-    public void setGdLat(double gdLat) {
+    public void setGdLat(String gdLat) {
         this.gdLat = gdLat;
     }
 
-    public double getBaiduLng() {
+    public String getBaiduLng() {
         return baiduLng;
     }
 
-    public void setBaiduLng(double baiduLng) {
+    public void setBaiduLng(String baiduLng) {
         this.baiduLng = baiduLng;
     }
 
-    public double getBaiduLat() {
+    public String getBaiduLat() {
         return baiduLat;
     }
 
-    public void setBaiduLat(double baiduLat) {
+    public void setBaiduLat(String baiduLat) {
         this.baiduLat = baiduLat;
     }
 
-    public double getGugeLng() {
+    public String getGugeLng() {
         return gugeLng;
     }
 
-    public void setGugeLng(double gugeLng) {
+    public void setGugeLng(String gugeLng) {
         this.gugeLng = gugeLng;
     }
 
-    public double getGugeLat() {
+    public String getGugeLat() {
         return gugeLat;
     }
 
-    public void setGugeLat(double gugeLat) {
+    public void setGugeLat(String gugeLat) {
         this.gugeLat = gugeLat;
     }
 
-    public int getIsHot() {
+    public String getIsHot() {
         return isHot;
     }
 
-    public void setIsHot(int isHot) {
+    public void setIsHot(String isHot) {
         this.isHot = isHot;
     }
 
-    public int getState() {
+    public String getState() {
         return state;
     }
 
-    public void setState(int state) {
+    public void setState(String state) {
         this.state = state;
     }
 
-    public int getLevel() {
+    public String getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
+    public void setLevel(String level) {
         this.level = level;
     }
 
-    public Object getParentId() {
+    public String getParentId() {
         return parentId;
     }
 
-    public void setParentId(Object parentId) {
+    public void setParentId(String parentId) {
         this.parentId = parentId;
     }
 
-    public long getCreateDate() {
+    public String getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(long createDate) {
+    public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
 
@@ -180,27 +178,27 @@ public class GetGDAddressList   {
         this.createBy = createBy;
     }
 
-    public Object getUpdateDate() {
+    public String getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(Object updateDate) {
+    public void setUpdateDate(String updateDate) {
         this.updateDate = updateDate;
     }
 
-    public Object getUpdateBy() {
+    public String getUpdateBy() {
         return updateBy;
     }
 
-    public void setUpdateBy(Object updateBy) {
+    public void setUpdateBy(String updateBy) {
         this.updateBy = updateBy;
     }
 
-    public int getVersion() {
+    public String getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(String version) {
         this.version = version;
     }
 

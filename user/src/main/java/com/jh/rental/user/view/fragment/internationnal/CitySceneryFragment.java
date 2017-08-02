@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.jh.rental.user.R;
 import com.jh.rental.user.utils.jason.ActivityUtils;
-import com.jh.rental.user.view.actitity.internationnal.Itinerary_Activity;
+import com.jh.rental.user.view.actitity.journey.Itinerary_Activity;
 import com.jh.rental.user.view.adapter.internationnal.CitySceneryListAdapter;
 
 /**

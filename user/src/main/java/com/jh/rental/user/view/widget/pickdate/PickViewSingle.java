@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.support.v4.view.GestureDetectorCompat;
 import android.util.AttributeSet;
@@ -21,31 +22,25 @@ import java.util.List;
  */
 
 public class PickViewSingle extends View {
-    private  float h1;/*字体高度*/
+    private  float fontheight1,fontheight2;/*字体高度*/
     private GestureDetectorCompat gestureDetectorCompat;
     private boolean orun=false;//设置启动
-    private String text;
-    private Paint  paint;
+    private Paint  paint,line,paintc;
     private List<Integer>  list;
-    private int  fontsize=80;//字体大小
     public PickViewSingle(Context context) {
         this(context,null);
     }
-
     public PickViewSingle(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         Gesturelinster gesturelinster=new Gesturelinster();
         gestureDetectorCompat =new GestureDetectorCompat(context,gesturelinster);
         list=new ArrayList<>();
-        paint=getPain();
-        h1=paint.descent()-paint.ascent();
-        widthFont=paint.measureText("10");
+        line=getPaintLine();
         orun=false;
     }
-    private final  int count=3;
+    private   int count=3;
     private int weight=0;
-    private int height=0;
-    private  float widthFont=0;
+    private  float height;
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.drawColor(Color.WHITE);
@@ -54,29 +49,48 @@ public class PickViewSingle extends View {
         }
         if (weight==0){
             weight=getWidth();
+            height=getHeight()/3;
+            float a=(height*3)/4;
+            float b=height/2;
+            paint=getPain(b);
+            paintc=getPain2(a);
+            fontheight1=paintc.descent()-paintc.ascent();
+            fontheight2=paint.descent()-paint.ascent();
+            fontheight1=(height-fontheight1)/2;
+            fontheight2=(height-fontheight2)/2;
         }
-        float x=weight/2-widthFont;
-        float xx=weight/2+widthFont;
         if (list==null){
             return;
         }
-        if (list.size()>3){
-            for (int i = 0; i <count ; i++) {
-                canvas.drawText(String.valueOf(list.get(i)),weight/2,h1+i*h1,paint);
+        RectF rect =new RectF(0,height,getWidth(),2*height);
+        canvas.drawRect(rect,line);
+        if (list.size()>0){
+            if (list.size()<count){
+                count=list.size();
             }
-            canvas.drawLine(x,h1,xx,h1,paint);
-            canvas.drawLine(x,2*h1,xx,2*h1,paint);
+            if (list.size()==1){
+                canvas.drawText(String.valueOf(list.get(0))+value,weight/2,height+height-fontheight1*2,paintc);
+                return;
+            }
+            for (int i = 0; i <count ; i++) {
+                if (i==1){
+                    canvas.drawText(String.valueOf(list.get(i))+value,weight/2,height+height*i-fontheight1*2,paintc);
+                }else {
+                    canvas.drawText(String.valueOf(list.get(i))+value,weight/2,height+height*i-fontheight2,paint);
+                }
+            }
         }
+    }
+    private String  value="";
 
+    public String getValue() {
+        return value;
     }
 
-    public Paint  getPain(){
-        Paint pa =new Paint();
-        pa.setColor(Color.BLACK);
-        pa.setTextSize(fontsize);
-        pa.setAntiAlias(true);
-        return pa;
+    public void setValue(String value) {
+        this.value = value;
     }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         gestureDetectorCompat.onTouchEvent(event);
@@ -101,7 +115,28 @@ public class PickViewSingle extends View {
             return super.onScroll(e1, e2, distanceX, distanceY);
         }
     }
-
+    public Paint  getPain(float size){
+        Paint pa =new Paint();
+        pa.setColor(Color.parseColor("#9A9A9A"));
+        pa.setTextSize(size);
+        pa.setAntiAlias(true);
+        return pa;
+    }
+    public Paint  getPain2(float size){
+        Paint pa =new Paint();
+        pa.setColor(Color.parseColor("#424242"));
+        pa.setTextSize(size);
+        pa.setAntiAlias(true);
+        return pa;
+    }
+    public Paint  getPaintLine(){
+        Paint pa =new Paint();
+        pa.setColor(Color.parseColor("#eef7ff"));
+        pa.setStyle(Paint.Style.FILL);
+        pa.setStrokeWidth(5f);
+          pa.setAntiAlias(true);
+        return pa;
+    }
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -134,15 +169,6 @@ public class PickViewSingle extends View {
 
         }
     }
-
-    @Override
-    protected void onDetachedFromWindow() {
-        if (list!=null){
-            list.clear();
-        }
-        super.onDetachedFromWindow();
-    }
-
     public static void listSubOne(List<Integer> list) { //-1
         if (list==null||list.size()<1){
             return;
@@ -159,7 +185,8 @@ public class PickViewSingle extends View {
 
     public void startUi(List l){  //设置数据类型
         orun =true;
-       this.list=l;
+        this.list.clear();
+          list.addAll(l);
         invalidate();
     }
 

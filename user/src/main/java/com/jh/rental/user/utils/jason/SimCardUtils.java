@@ -1,15 +1,7 @@
 package com.jh.rental.user.utils.jason;
 
-import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
-import android.widget.Toast;
 
 import static android.Manifest.permission.READ_PHONE_STATE;
 
@@ -37,7 +29,7 @@ public class SimCardUtils {
         if (PermissionUtils.checkPermission(context,READ_PHONE_STATE)) {
             TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
              String as=manager.getLine1Number();
-            if (as.contains("+86")){
+            if (as!=null&&as.contains("+86")){
               return as.replace("+86","");
             }
             return as;

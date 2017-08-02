@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jh.rental.user.R;
-import com.jh.rental.user.utils.jason.Logger;
 import com.zhy.autolayout.utils.AutoUtils;
 
 /**
@@ -22,6 +21,7 @@ public class ItineraryAdapter extends RecyclerView.Adapter {
     public static final int TYPEL_HEAD = 0;
     public static final int TYPEL_TITLE = 1;
     public static final int TYPEL_ORDINARY = 2;
+    public static final int TYPEL_DETERMINE = 3;
 
     public ItineraryAdapter(Context context) {
         mContext = context;
@@ -37,9 +37,11 @@ public class ItineraryAdapter extends RecyclerView.Adapter {
     public int getItemViewType(int position) {
         if (position == 0){
             return TYPEL_HEAD;
+        }else if(position == GROUP_SIZE-1) {
+            return TYPEL_DETERMINE;
         }else if(position %5 == 1) {
             return TYPEL_TITLE;
-        } else {
+        }else {
             return TYPEL_ORDINARY;
         }
 
@@ -58,15 +60,19 @@ public class ItineraryAdapter extends RecyclerView.Adapter {
             case TYPEL_ORDINARY:
                 itemView = LayoutInflater.from(mContext).inflate(R.layout.sub_item_itinerary3_list, parent, false);
                 return new ItineraryHolder3(itemView);
+            case TYPEL_DETERMINE:
+                itemView = LayoutInflater.from(mContext).inflate(R.layout.sub_item_itinerary4_list, parent, false);
+                return new ItineraryHolder4(itemView);
             default:
                 return null;
         }
     }
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Logger.showMessage(position+"------------");
         int viewType = getItemViewType(position);
         switch (viewType) {
+            case TYPEL_HEAD:
+                break;
             case TYPEL_TITLE:
                 break;
             case TYPEL_ORDINARY:
@@ -76,7 +82,7 @@ public class ItineraryAdapter extends RecyclerView.Adapter {
                 }else if (position == 2){
                     ordinaryHolder.mLlJourneyTime.setVisibility(View.GONE);
                     ordinaryHolder.mTvtime.setVisibility(View.VISIBLE);
-                } else if (position == GROUP_SIZE-1){
+                } else if (position == GROUP_SIZE-2){
                     ordinaryHolder.mLlJourneyTime.setVisibility(View.GONE);
                     ordinaryHolder.mTvtime.setVisibility(View.VISIBLE);
                     ordinaryHolder.mTvtime.setBackgroundResource(R.color.userGreen);
@@ -85,8 +91,9 @@ public class ItineraryAdapter extends RecyclerView.Adapter {
                     ordinaryHolder.mIvLine.setVisibility(View.VISIBLE);
                     ordinaryHolder.mLlJourneyTime.setVisibility(View.VISIBLE);
                     ordinaryHolder.mTvtime.setVisibility(View.GONE);
-
                 }
+                break;
+            case TYPEL_DETERMINE:
                 break;
         }
     }
@@ -120,6 +127,14 @@ public class ItineraryAdapter extends RecyclerView.Adapter {
             mTvtime = (TextView) itemView.findViewById(R.id.tv_time);
             mIvLine = (ImageView) itemView.findViewById(R.id.iv_line);
             mLlJourneyTime = (LinearLayout) itemView.findViewById(R.id.ll_JourneyTime);
+            AutoUtils.autoSize(itemView);
+        }
+    }
+    class ItineraryHolder4 extends RecyclerView.ViewHolder {
+        View mItemView;
+        public ItineraryHolder4(View itemView) {
+            super(itemView);
+            mItemView = itemView;
             AutoUtils.autoSize(itemView);
         }
     }

@@ -78,11 +78,10 @@ public class DestinationLeftAdapter extends BaseAdapter   {
             @Override
             public void onClick(View v) {
                 positons=position;
-                notifyDataSetChanged();
                 if (changeData!=null){
                     changeData.changeData(positons);
                 }
-            }
+                 }
 
 
 

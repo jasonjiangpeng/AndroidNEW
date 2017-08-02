@@ -20,11 +20,9 @@ import com.jh.rental.user.view.BaseApplication;
 public   class TitelBarAcitvity extends BaseActvity   {
     private   TextView  textView=null;
     private   TextView  textView2=null;
-    private ImageView imageView=null;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -48,7 +46,17 @@ public   class TitelBarAcitvity extends BaseActvity   {
     public void setMyTite2(String tite2){
         textView2.setText(tite2);
     }
+    public void settv2Onclick(){
+        textView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               tv2Onclick();
+            }
+        });
+    }
+    public void tv2Onclick(){
 
+    }
     public void ImgBack_M(View view){
         BaseApplication.finishActivity();
     }

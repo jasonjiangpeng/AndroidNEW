@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.jh.rental.user.R;
 import com.jh.rental.user.utils.jason.BaseContext;
+import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -54,20 +55,25 @@ public class DestinationLeftAdapter2 extends BaseAdapter   {
     public View getView(final int position, View convertView, ViewGroup parent) {
         MyHolder myHolder=null;
         if (convertView==null){
-            convertView=LayoutInflater.from(context).inflate(R.layout.sub_item_textview,null);
             myHolder=new MyHolder();
+            convertView=LayoutInflater.from(context).inflate(R.layout.sub_item_textview2,parent, false);
+            myHolder.mImg= (ImageView) convertView.findViewById(R.id.sub_img);
+            myHolder.mTxt= (TextView) convertView.findViewById(R.id.sub_text);
+            myHolder.view1= convertView.findViewById(R.id.view1);
             convertView.setTag(myHolder);
+            AutoUtils.autoSize(convertView);
         }
         myHolder= (MyHolder) convertView.getTag();
-        myHolder.mImg= (ImageView) convertView.findViewById(R.id.sub_img);
-        myHolder.mTxt= (TextView) convertView.findViewById(R.id.sub_text);
+
         myHolder.mTxt.setText(lists.get(position));
         if (position==positons){
             myHolder.mImg.setVisibility(View.VISIBLE);
             myHolder.mTxt.setBackgroundColor(BaseContext.getResIntValue(R.color.white3));
             myHolder.mTxt.setTextColor(BaseContext.getResIntValue(R.color.mudiwhite1));
+            myHolder.view1.setVisibility(View.GONE);
         }else{
             myHolder.mImg.setVisibility(View.GONE);
+            myHolder.view1.setVisibility(View.VISIBLE);
             myHolder.mTxt.setBackgroundColor(BaseContext.getResIntValue(R.color.userGray2));
             myHolder.mTxt.setTextColor(BaseContext.getResIntValue(R.color.userBlack));
         }
@@ -98,8 +104,10 @@ public class DestinationLeftAdapter2 extends BaseAdapter   {
 
     private    ChangeData changeData;
     class  MyHolder {
-        TextView  mTxt;
-        ImageView  mImg;
+   private      TextView  mTxt;
+        private ImageView  mImg;
+        private View  view1;
+
         public MyHolder() {
 
         }

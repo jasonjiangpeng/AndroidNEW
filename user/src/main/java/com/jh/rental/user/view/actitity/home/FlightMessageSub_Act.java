@@ -39,7 +39,7 @@ private TextView flight_choosetime;
         popCanlenderSingleView =new PopCanlenderSingleView(this);
         popCanlenderSingleView.setCallBackData(new PopCanlenderSingleView.CallBackData() {
             @Override
-            public void callbackData(String value) {
+            public void callbackData(String value,View view) {
                 flight_choosetime.setText(value);
 
             }

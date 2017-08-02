@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.jh.rental.user.R;
+import com.jh.rental.user.api.ApiConstants;
 import com.jh.rental.user.utils.jason.ActivityUtils;
 import com.jh.rental.user.view.actitity.home.FlightMessage1_Act;
 
@@ -27,13 +28,13 @@ public class PickUpAirport extends com.jh.rental.user.view.fragment.BaseFragment
         TextView  pickup_tv2= (TextView) view.findViewById(R.id.pickup_tv2);
         pickup_tv1.setOnClickListener(this);
         pickup_tv2.setOnClickListener(this);
-
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.pickup_tv1:
+                ApiConstants.OrderlTpye =0;
                 ActivityUtils.nextActivity(FlightMessage1_Act.class);
                 break;
             case R.id.pickup_tv2:

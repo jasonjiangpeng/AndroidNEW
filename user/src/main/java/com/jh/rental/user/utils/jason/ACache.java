@@ -15,6 +15,17 @@
  */
 package com.jh.rental.user.utils.jason;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.PixelFormat;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
@@ -35,17 +46,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.PixelFormat;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 
 
 public class ACache {
@@ -89,8 +89,9 @@ public class ACache {
 
 	private ACache(File cacheDir, long max_size, int max_count) {
 		if (!cacheDir.exists() && !cacheDir.mkdirs()) {
-			throw new RuntimeException("can't make dirs in "
-					+ cacheDir.getAbsolutePath());
+			// cacheDir.mkdir();
+		/*	throw new RuntimeException("can't make dirs in "
+					+ cacheDir.getAbsolutePath());*/
 		}
 		mCache = new ACacheManager(cacheDir, max_size, max_count);
 	}
@@ -400,6 +401,7 @@ public class ACache {
 			e.printStackTrace();
 		} finally {
 			try {
+				if (oos!=null)
 				oos.close();
 			} catch (IOException e) {
 			}
@@ -487,10 +489,10 @@ public class ACache {
 	}
 
 	// =======================================
-	// ============= drawable 数据 读写 =============
+	// ============= scenphoto1 数据 读写 =============
 	// =======================================
 	/**
-	 * 保存 drawable 到 缓存中
+	 * 保存 scenphoto1 到 缓存中
 	 * 
 	 * @param key
 	 *            保存的key
@@ -502,12 +504,12 @@ public class ACache {
 	}
 
 	/**
-	 * 保存 drawable 到 缓存中
+	 * 保存 scenphoto1 到 缓存中
 	 * 
 	 * @param key
 	 *            保存的key
 	 * @param value
-	 *            保存的 drawable 数据
+	 *            保存的 scenphoto1 数据
 	 * @param saveTime
 	 *            保存的时间，单位：秒
 	 */
@@ -686,7 +688,8 @@ public class ACache {
 			}
 
 			long fileSize = calculateSize(mostLongUsedFile);
-			if (mostLongUsedFile.delete()) {
+
+			if (mostLongUsedFile!=null&&mostLongUsedFile.delete()) {
 				lastUsageDates.remove(mostLongUsedFile);
 			}
 			return fileSize;
@@ -838,10 +841,10 @@ public class ACache {
 			if (drawable == null) {
 				return null;
 			}
-			// 取 drawable 的长宽
+			// 取 scenphoto1 的长宽
 			int w = drawable.getIntrinsicWidth();
 			int h = drawable.getIntrinsicHeight();
-			// 取 drawable 的颜色格式
+			// 取 scenphoto1 的颜色格式
 			Bitmap.Config config = drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
 					: Bitmap.Config.RGB_565;
 			// 建立对应 bitmap
@@ -849,7 +852,7 @@ public class ACache {
 			// 建立对应 bitmap 的画布
 			Canvas canvas = new Canvas(bitmap);
 			drawable.setBounds(0, 0, w, h);
-			// 把 drawable 内容画到画布中
+			// 把 scenphoto1 内容画到画布中
 			drawable.draw(canvas);
 			return bitmap;
 		}

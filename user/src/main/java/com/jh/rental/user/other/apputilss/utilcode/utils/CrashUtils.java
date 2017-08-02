@@ -125,8 +125,8 @@ public class CrashUtils
                 "\nDevice Model       : " + Build.MODEL +// 设备型号
                 "\nAndroid Version    : " + Build.VERSION.RELEASE +// 系统版本
                 "\nAndroid SDK        : " + Build.VERSION.SDK_INT +// SDK版本
-                "\nApp VersionName    : " + versionName +
-                "\nApp VersionCode    : " + versionCode +
+                "\nAppUtils VersionName    : " + versionName +
+                "\nAppUtils VersionCode    : " + versionCode +
                 "\n************* Crash Log Head ****************\n\n";
     }
 }

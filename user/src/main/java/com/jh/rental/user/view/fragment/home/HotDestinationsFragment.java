@@ -1,38 +1,56 @@
 package com.jh.rental.user.view.fragment.home;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
 
-import com.jh.rental.user.R;
-import com.jh.rental.user.view.adapter.home.DriverStoryListAdapter;
-import com.jh.rental.user.view.adapter.home.HotDestinationsListAdapter2;
-import com.jh.rental.user.view.fragment.BaseFragment;
+import com.jh.rental.user.bean.ordermessage.GetAreaAddressList;
+import com.jh.rental.user.model.NetResponArrayData;
+import com.jh.rental.user.model.homemodel.GetInterAreaAddressList;
+import com.jh.rental.user.view.adapter.home.HotDestinationsListAdapter;
 import com.jh.rental.user.view.fragment.BaseListFragment;
+
+import java.util.List;
 
 
 public class HotDestinationsFragment extends BaseListFragment {
-
-    private GridLayoutManager mGridManager;
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
+  //  private HotDestinationsListAdapter HotDestinationsListAdapter;
 
     @Override
     public RecyclerView.Adapter getAdapter() {
-        return new HotDestinationsListAdapter2(getContext());
+  /*      if (getAreaAddressList==null){
+            getAreaAddressList=new ArrayList<>();
+        }
+        HotDestinationsListAdapter =new HotDestinationsListAdapter(getContext(),getAreaAddressList);*/
+        return null;
+    }
 
+    @Override
+    protected void init() {
+        super.init();
+        netRequest();
+    }
+
+    public void netRequest() {
+        new GetInterAreaAddressList().netRequest(new NetResponArrayData<GetAreaAddressList>() {
+            @Override
+            public void responeData(final List<GetAreaAddressList> values) {
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        HotDestinationsListAdapter hotRouteListAdapter =new HotDestinationsListAdapter(getContext(),values);
+                        initRecyclerView(hotRouteListAdapter);
+
+                    }
+                });
+
+            }
+        });
     }
 
 
+    @Override
+    public void dataCallBack() {
 
+    }
 }

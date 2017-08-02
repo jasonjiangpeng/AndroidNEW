@@ -1,5 +1,6 @@
 package com.jh.rental.user.view.actitity.hongkong;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -15,9 +16,11 @@ public class UploadData2_Activity extends TitelBarAcitvity implements View.OnCli
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.uploaddata2_activity);
+        requestPermission(new String[]{Manifest.permission.CAMERA},123);
         setMyTitel(BaseContext.getResValue(R.string.PerfectInformation));
         initView();
     }
+
 
     private void initView() {
         Button btUpload = (Button) findViewById(R.id.bt_continueUpload);

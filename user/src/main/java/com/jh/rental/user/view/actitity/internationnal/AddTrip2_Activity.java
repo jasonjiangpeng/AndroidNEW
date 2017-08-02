@@ -33,7 +33,7 @@ public class AddTrip2_Activity extends TitelBarAcitvity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button:
-                ActivityUtils.nextActivity(SceneryCity_Activity.class);
+                ActivityUtils.nextActivity(AddTrip3_Activity.class);
                 break;
         }
     }

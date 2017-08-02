@@ -1,5 +1,7 @@
 package com.jh.rental.user.api;
 
+import android.Manifest;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +13,7 @@ import java.util.Map;
 public class ApiMapUtils {
     public static Map<String,String> getMapRequest(String[] s, String...abc){
          if (abc.length!=s.length){
+
              return null;
          }
          Map<String,String> stringStringMap=new HashMap<>();

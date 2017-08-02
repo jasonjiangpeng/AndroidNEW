@@ -2,6 +2,7 @@ package com.jh.rental.user.utils.jason;
 
 import android.content.Context;
 import android.os.Build;
+import android.view.Window;
 
 /**
  * Created by 骏辉出行 on 2017/5/12.

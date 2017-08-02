@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.jh.rental.user.R;
+import com.jh.rental.user.constants.Constant;
 import com.jh.rental.user.utils.jason.ActivityUtils;
 import com.jh.rental.user.view.actitity.home.SearchDest_Act;
 import com.jh.rental.user.view.actitity.internationnal.OrderDetails_Activity;
@@ -46,6 +47,7 @@ public class CharteredBu2 extends BaseFragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button:
+                Constant.COUPON = 0;
                 ActivityUtils.nextActivity(OrderDetails_Activity.class,"indent",INDENT);
                 break;
             case R.id.charterdbus_edt1:

@@ -7,6 +7,8 @@ package com.jh.rental.user.bean;
 public class CityData {
     private String city;
     private String dataid;
+    private double gdLng;
+    private double gdLat;
 
     public String getCity() {
         return city;

@@ -111,7 +111,7 @@ public class ImageUtils {
      *
      * @param res    resources对象
      * @param bitmap bitmap对象
-     * @return drawable
+     * @return scenphoto1
      */
     public static Drawable bitmap2Drawable(Resources res, Bitmap bitmap) {
         return bitmap == null ? null : new BitmapDrawable(res, bitmap);
@@ -133,7 +133,7 @@ public class ImageUtils {
      *
      * @param res   resources对象
      * @param bytes 字节数组
-     * @return drawable
+     * @return scenphoto1
      */
     public static Drawable bytes2Drawable(Resources res, byte[] bytes) {
         return res == null ? null : bitmap2Drawable(res, bytes2Bitmap(bytes));

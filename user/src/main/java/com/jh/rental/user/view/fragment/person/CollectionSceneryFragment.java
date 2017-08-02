@@ -15,4 +15,8 @@ public class CollectionSceneryFragment
         return new CollectionSceneryListAdapter(getContext());
     }
 
+    @Override
+    public void dataCallBack() {
+
+    }
 }

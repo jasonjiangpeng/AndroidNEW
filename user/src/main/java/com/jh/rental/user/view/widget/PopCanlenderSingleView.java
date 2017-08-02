@@ -11,11 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jh.rental.user.R;
-import com.jh.rental.user.constants.Constant;
-import com.jh.rental.user.utils.jason.ActivityUtils;
-import com.jh.rental.user.utils.jason.Logger;
-import com.jh.rental.user.utils.tom.PreferencesUtil;
-import com.jh.rental.user.view.actitity.home.FlightMessage2_Act;
+
 import com.jh.rental.user.view.popview.PopwindowUtils;
 
 import java.text.SimpleDateFormat;
@@ -49,20 +45,20 @@ public class PopCanlenderSingleView extends LinearLayout implements View.OnClick
     private void init() {
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.pop_singlecanlender, this);
         calendarView= (CalendarView) inflate.findViewById(R.id.pop_singlecanlender);
-        TextView     textView= (TextView) inflate.findViewById(R.id.pop_sure);
-        TextView     pop_cancel= (TextView) inflate.findViewById(R.id.pop_cancel);
+        TextView     textView= (TextView) inflate.findViewById(R.id.cancel_btn);
+        TextView     pop_cancel= (TextView) inflate.findViewById(R.id.sure_btn);
+        TextView   poptvs = (TextView) inflate.findViewById(R.id.poptvs);
+        poptvs.setText("请选择出发日期");
         textView.setOnClickListener(this);
         pop_cancel.setOnClickListener(this);
         calendarView.setMinDate(System.currentTimeMillis());
         long date = calendarView.getDate();
-        Logger.soutMessage("date==================="+date);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                value=year+"-"+(month+1)+"-"+dayOfMonth;
             }
         });
-
     }
 
     public String getValue() {
@@ -86,23 +82,17 @@ public class PopCanlenderSingleView extends LinearLayout implements View.OnClick
     @Override
     public void onClick(View v) {
           switch (v.getId()){
-              case R.id.pop_sure:
-           /*        if (isCallback)        {
-                       PopwindowUtils.getPopwindowUtils().getPopupWindow().dismiss();
-                   }else {
-                       ActivityUtils.nextActivity(FlightMessage2_Act.class);
-                     }*/
-                  callBackData.callbackData(getValue());
-
+              case R.id.cancel_btn:
+                  PopwindowUtils.closePopWin();
                   break;
-              case R.id.pop_cancel:
-
-               PopwindowUtils.getPopwindowUtils().getPopupWindow().dismiss();
+              case R.id.sure_btn:
+                  PopwindowUtils.closePopWin();
+                  callBackData.callbackData(getValue(),v);
                   break;
           }
     }
     public interface  CallBackData{
-        void callbackData(String value);
+        void callbackData(String value,View view);
     }
 
     private  boolean isCallback=true;

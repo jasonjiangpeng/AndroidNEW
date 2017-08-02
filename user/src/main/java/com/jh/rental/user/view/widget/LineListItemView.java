@@ -6,10 +6,10 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 
 import com.jh.rental.user.R;
+import com.jh.rental.user.view.BaseApplication;
 
 
-public class LineListItemView
-        extends LinearLayout {
+public class LineListItemView extends LinearLayout {
 
     public LineListItemView(Context context) {
         this(context, null);

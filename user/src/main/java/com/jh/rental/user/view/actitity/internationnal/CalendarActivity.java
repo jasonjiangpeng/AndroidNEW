@@ -1,8 +1,5 @@
 package com.jh.rental.user.view.actitity.internationnal;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.jh.rental.user.R;
@@ -10,11 +7,8 @@ import com.jh.rental.user.view.actitity.TitelBarAcitvity;
 import com.jh.rental.user.view.calendarview.DatePickerController;
 import com.jh.rental.user.view.calendarview.DayPickerView;
 import com.jh.rental.user.view.calendarview.SimpleMonthAdapter;
-
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.ViewById;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +18,6 @@ import java.util.List;
 @EActivity(R.layout.calender_activity)
 public class CalendarActivity extends TitelBarAcitvity {
     DayPickerView  dayPickerView;
-
   @AfterViews
     public void init(){
       dayPickerView= (DayPickerView) findViewById(R.id.pickerView);

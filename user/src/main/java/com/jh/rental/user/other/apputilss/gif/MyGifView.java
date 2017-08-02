@@ -108,7 +108,7 @@ public class MyGifView extends View {
                 } catch(Exception e) {
                 }
                 if(movie == null) {
-//drawable = Drawable.createFromPath(filename);
+//scenphoto1 = Drawable.createFromPath(filename);
                     drawable = fitSizeImg(filename);
                 }
             }
@@ -123,7 +123,7 @@ public class MyGifView extends View {
                 }
                 try {
                     if(movie == null){
-//drawable = Drawable.createFromStream(is, null);
+//scenphoto1 = Drawable.createFromStream(is, null);
                         drawable = fitSizeImg(is);
                     }
                 } catch(Exception e) {

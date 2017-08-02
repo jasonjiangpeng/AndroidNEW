@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class PreferencesUtil {
-    private static final String TAG = "PreferencesUtil";
 
     private static SharedPreferences getsp(Context context) {
         return context.getSharedPreferences("context", 0);

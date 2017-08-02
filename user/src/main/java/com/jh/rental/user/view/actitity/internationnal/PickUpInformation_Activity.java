@@ -30,14 +30,13 @@ public class PickUpInformation_Activity extends TitelBarAcitvity implements View
 
     @Override
     public void handleManage(int value) {
-
         tv1.setText(pickupDetails.getDepartcity());
         tv3.setText(pickupDetails.getDescitys());
         tv4.setText(pickupDetails.getMancounts());
         tv5.setText(pickupDetails.getChild());
         tv6.setText(pickupDetails.getCarmessage());
         tv7.setText(pickupDetails.getLuggage());
-        tv8.setText(pickupDetails.getTime());
+    //    tv8.setText(pickupDetails.getTime());
     }
 
     private void initView() {
@@ -60,7 +59,7 @@ public class PickUpInformation_Activity extends TitelBarAcitvity implements View
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button:
-                ActivityUtils.nextActivity(AddTrip2_Activity.class);
+                ActivityUtils.nextActivity(AddTrip3_Activity.class);
                 break;
         }
     }

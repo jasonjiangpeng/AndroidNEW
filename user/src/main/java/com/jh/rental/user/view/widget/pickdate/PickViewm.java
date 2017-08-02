@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.support.v4.view.GestureDetectorCompat;
 import android.util.AttributeSet;
@@ -19,13 +21,13 @@ import java.util.List;
  */
 
 public class PickViewm extends View {
-    private  float h1;/*字体高度*/
+    private  float fontheight1,fontheight2;/*字体高度*/
     private GestureDetectorCompat gestureDetectorCompat;
     private boolean orun=false;//设置启动
     private String text;
     private Paint  paint;
     private List<Integer>  list;
-    private int  fontsize=80;//字体大小
+
     public PickViewm(Context context) {
         this(context,null);
     }
@@ -35,43 +37,72 @@ public class PickViewm extends View {
         Gesturelinster gesturelinster=new Gesturelinster();
         gestureDetectorCompat =new GestureDetectorCompat(context,gesturelinster);
         list=new ArrayList<>();
-        paint=getPain();
-        h1=paint.descent()-paint.ascent();
+        paintline=getPaintLine();
 
     }
+    private int height;
+    private int weight;
+
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.drawColor(Color.WHITE);
         if (!orun){
             return;
         }
-        if (list.size()==0){
-            canvas.drawLine(0,h1,getWidth(),h1,paint);
-            canvas.drawLine(0,h1*2,getWidth(),h1*2,paint);
-            canvas.drawText(text,0,h1+h1,paint);
-        }else if (list.size()==2) {
-            for (int i = 0; i <list.size() ; i++) {
-                if (i==1){
-                    canvas.drawLine(0,h1,getWidth(),h1,paint);
-                    canvas.drawLine(0,h1*2,getWidth(),h1*2,paint);
-                }
-                canvas.drawText(list.get(i)+text,0,h1+i*h1,paint);
-            }
-        }else if (list.size()>2){
+        if (weight==0){
+            weight=getWidth();
+            height=getHeight()/3;
+            float a=height/2;
+            float b=(height*2)/5;
+            paintc=getPain2(a);
+            paint=getPain(b);
+            fontheight1=paintc.descent()-paintc.ascent();
+            fontheight2=paint.descent()-paint.ascent();
+            fontheight1=(height-fontheight1)/2;
+            fontheight2=(height-fontheight2)/2;
+        }
+        RectF rect =new RectF(0,height,getWidth(),2*height);
+        canvas.drawRect(rect,paintline);
             for (int i = 0; i <3 ; i++) {
                 if (i==1){
-                    canvas.drawLine(0,h1,getWidth(),h1,paint);
-                    canvas.drawLine(0,h1*2,getWidth(),h1*2,paint);
+                    String value=list.get(i)+text;
+                    float v = paintc.measureText(value);
+                    float  c= (weight-v)/2;
+                    canvas.drawText(value,c,height+height*i-fontheight1,paintc);
+                }else {
+                    String value=list.get(i)+text;
+                    float v = paint.measureText(value);
+                    float  c= (weight-v)/2;
+                    canvas.drawText(value,c,height+height*i-fontheight2,paint);
                 }
-                canvas.drawText(list.get(i)+text,0,h1+i*h1,paint);
+              //  canvas.drawText(String.valueOf(list.get(i)),weight/2,height+height*i-fontheight2,paint);
             }
-        }
+
     }
 
-    public Paint  getPain(){
+    private Paint  paintline;
+    private Paint  paintc;
+    public Paint  getPaintLine(){
         Paint pa =new Paint();
-        pa.setColor(Color.BLACK);
-        pa.setTextSize(fontsize);
+        pa.setStyle(Paint.Style.FILL);
+        pa.setColor(Color.parseColor("#eef7ff"));
+        pa.setAntiAlias(true);
+        return pa;
+    }
+    public Paint  getPain2(float size){
+        Paint pa =new Paint();
+        pa.setColor(Color.parseColor("#424242"));
+        pa.setTextSize(size);
+        pa.setAntiAlias(true);
+        return pa;
+    }
+   public int  getTime(){
+       return list.get(1);
+   }
+    public Paint  getPain(float size){
+        Paint pa =new Paint();
+        pa.setColor(Color.parseColor("#9A9A9A"));
+        pa.setTextSize(size);
         pa.setAntiAlias(true);
         return pa;
     }
@@ -87,11 +118,11 @@ public class PickViewm extends View {
         }
         @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-            if (distanceY>25){
-                postDelayed(rundown,10);
+            if (distanceY>20){
+                postDelayed(rundown,0);
             }
-            if (distanceY<-25){
-                postDelayed(runup,10);
+            if (distanceY<-20){
+                postDelayed(runup,0);
             }
             return super.onScroll(e1, e2, distanceX, distanceY);
         }
@@ -129,15 +160,6 @@ public class PickViewm extends View {
 
         }
     }
-
-    @Override
-    protected void onDetachedFromWindow() {
-        if (list!=null){
-            list.clear();
-        }
-        super.onDetachedFromWindow();
-    }
-
     public static void listSubOne(List<Integer> list) { //-1
         if (list==null||list.size()<1){
             return;

@@ -289,7 +289,9 @@ class SimpleMonthView extends View {
             if (!isPrevDayEnabled && prevDay(day, today)) {
                 isPrevDay = true;
                 mDayTextPaint.setColor(mPreviousDayTextColor);
-                mDayTextPaint.setTypeface(Typeface.defaultFromStyle(Typeface.ITALIC));
+                mDayTextPaint.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                /*修改前*/
+               // mDayTextPaint.setTypeface(Typeface.defaultFromStyle(Typeface.ITALIC));
                 canvas.drawText(String.format("%d", day), x, y, mDayTextPaint);
             }
 
@@ -299,19 +301,18 @@ class SimpleMonthView extends View {
                 isBeginDay = true;
                 drawDayBg(canvas, x, y, mSelectedDayBgPaint);
                 mDayTextPaint.setColor(mSelectedDayTextColor);
-                canvas.drawText("入住", x, getTextYCenter(mDayTextPaint, y + DAY_SELECTED_RECT_SIZE / 2), mDayTextPaint);
+                canvas.drawText("出发", x, getTextYCenter(mDayTextPaint, y + DAY_SELECTED_RECT_SIZE / 2), mDayTextPaint);
                 if(isToady) {
                     canvas.drawText("今天", x, getTextYCenter(mDayTextPaint, y - DAY_SELECTED_RECT_SIZE / 2), mDayTextPaint);
                 }
             }
-
             boolean isLastDay = false;
             // 绘制结束日期的方格
             if (mEndDate != null && cellCalendar.equals(mEndDate) && !mStartDate.equals(mEndDate)) {
                 isLastDay = true;
                 drawDayBg(canvas, x, y, mSelectedDayBgPaint);
                 mDayTextPaint.setColor(mSelectedDayTextColor);
-                canvas.drawText("退房", x, getTextYCenter(mDayTextPaint, y + DAY_SELECTED_RECT_SIZE / 2), mDayTextPaint);
+                canvas.drawText("截至", x, getTextYCenter(mDayTextPaint, y + DAY_SELECTED_RECT_SIZE / 2), mDayTextPaint);
             }
 
             // 在入住和退房之间的日期
@@ -335,7 +336,6 @@ class SimpleMonthView extends View {
                     // 选择了入住和退房日期，退房日期等于mNearestDay的情况
                     if (mStartDate != null && mEndDate != null && mNearestDay != null &&
                             mEndDate.equals(mNearestDay) && mEndDate.equals(calendarDay)) {
-
                     } else {
                         // 选择了入住日期，没有选择退房日期，mNearestDay变为可选且不变灰色
                         if (mStartDate != null && mEndDate == null && mNearestDay != null && cellCalendar.equals(mNearestDay)) {

@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-import com.jh.rental.user.other.apputilss.utilcode.utils.Utils;
 
 /**
  * <pre>

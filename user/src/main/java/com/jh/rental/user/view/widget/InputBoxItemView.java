@@ -21,6 +21,7 @@ public class InputBoxItemView extends RelativeLayout {
     private EditText editText = null;
     String tvText;
     String etTex;
+
     public InputBoxItemView(Context context) {
         this(context, null);
     }
@@ -41,7 +42,6 @@ public class InputBoxItemView extends RelativeLayout {
         editText.setInputType(InputType.TYPE_NULL);
         //  KeyboardCtrol.getkeyboardUtils().hideSoftkey(editText);
         txtView.setText(tvText);
-      //  editText.setHint(etTex);
 
     }
 }

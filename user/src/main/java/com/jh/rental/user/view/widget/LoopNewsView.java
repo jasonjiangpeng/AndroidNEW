@@ -2,6 +2,7 @@ package com.jh.rental.user.view.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -23,13 +24,11 @@ public class LoopNewsView extends RelativeLayout {
 	private int mLastPosition = 0;
 	private int mDotSize;
 	private AutoChangTask mTask;
-	private int[] mImages = {R.drawable.shanchuxxhdpi, R.drawable.shanchuxxhdpi, R.drawable.shanchuxxhdpi,
-							 R.drawable.shanchuxxhdpi};
-
+	private int[] mImages = {Color.parseColor("#61fdff"),Color.parseColor("#C2185B"),Color.parseColor("#50B4FD"),Color.parseColor("#303F9F")};
 	public LoopNewsView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.LoopNewsView);
-		mDotSize =  a.getDimensionPixelSize(R.styleable.LoopNewsView_dot_size, 16);
+		mDotSize =  a.getDimensionPixelSize(R.styleable.LoopNewsView_dot_size, 12);
 		a.recycle();
 		init();
 	}
@@ -43,7 +42,6 @@ public class LoopNewsView extends RelativeLayout {
 
 	@Override
 	protected void onAttachedToWindow() {
-
 		super.onAttachedToWindow();
 	}
 
@@ -131,7 +129,8 @@ public class LoopNewsView extends RelativeLayout {
 		public Object instantiateItem(android.view.ViewGroup container, int position) {
 			position = position % mImages.length;
 			ImageView item = new ImageView(getContext());
-			item.setImageResource(mImages[position]);
+		/*	item.setImageResource(mImages[position]);*/
+			item.setBackgroundColor(mImages[position]);
 			//item.setImageResource(mImages[position]);
 			item.setScaleType(ScaleType.FIT_XY);
 			container.addView(item);
@@ -162,7 +161,7 @@ public class LoopNewsView extends RelativeLayout {
 			postDelayed(this , 3000);
 		}
 
-		public void stop(){
+		public void stop() {
 			removeCallbacks(this);
 		}
 	}

@@ -15,7 +15,6 @@ import com.zhy.autolayout.utils.AutoUtils;
 
 public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ChooseListItemViewHolder> {
     private final Context mContext;
-
     public ChooseAdapter(Context context) {
         mContext = context;
     }

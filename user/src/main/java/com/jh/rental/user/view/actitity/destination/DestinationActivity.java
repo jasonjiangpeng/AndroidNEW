@@ -16,6 +16,7 @@ public class DestinationActivity extends BaseActvity {
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.destination_activity);
+
     }
 }
 

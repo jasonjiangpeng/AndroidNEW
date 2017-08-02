@@ -5,15 +5,14 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.jh.rental.user.view.fragment.home.DriverStoryFragment;
-import com.jh.rental.user.view.fragment.home.HotRouteFragment;
 import com.jh.rental.user.view.fragment.home.HotDestinationsFragment;
+import com.jh.rental.user.view.fragment.home.HotRouteFragment;
 import com.jh.rental.user.view.fragment.home.UserVoiceFragment;
 
 /**
  * 热门目的地、热门路线、司导故事、用户心声
  */
-public class HomePageAdapter
-        extends FragmentPagerAdapter
+public class HomePageAdapter extends FragmentPagerAdapter
 {
     public HomePageAdapter(FragmentManager fm) {
         super(fm);

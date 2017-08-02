@@ -1,8 +1,6 @@
 package com.jh.rental.user.view.actitity.internationnal;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,10 +18,14 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.jh.rental.user.R;
 import com.jh.rental.user.api.ApiConstants;
 import com.jh.rental.user.api.ApiPost;
+import com.jh.rental.user.bean.CarPriceSend;
 import com.jh.rental.user.bean.OrderDetails;
+import com.jh.rental.user.bean.PickupDetails;
 import com.jh.rental.user.bean.location.GetGdList;
 import com.jh.rental.user.bean.location.GetGooglePointByAdrBean;
 import com.jh.rental.user.bean.location.QueryGdList;
+import com.jh.rental.user.bean.location.WayPointOne;
+import com.jh.rental.user.bean.location.WayPointTwo;
 import com.jh.rental.user.bean.ordermessage.GetHotAddressList;
 import com.jh.rental.user.model.HttpVolley;
 import com.jh.rental.user.model.NetResponArrayData;
@@ -43,17 +45,28 @@ import org.json.JSONArray;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddressLocationDes_Activity extends TitelBarAcitvity implements View.OnClickListener {
+public class AddressLocationMid_Activity extends TitelBarAcitvity {
     private TextView tv1;
+    private List<GetHotAddressList> hotAddresses;
     private SearchView searchview;
+    private int waypoint = 0;
     private GetGooglePointByAdrBean getgooglePoint;
+    private boolean isStartCity = true;
+
     @Override
     public void initParameter() {
+        hotAddresses = new ArrayList<>();
+        if (ApiConstants.OrderlTpye == 2) {
+            sendRequestData(OrderDetails.getOrderDetails().getCity());
+        } else {
+            sendRequestData(PickupDetails.getOrderDetails().getArriveName());
+        }
+
     }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       isData= getIntent().getBooleanExtra("AddressLocationDes_Activity",true);
         new GetGooglePointByAdr().reqNet(ApiConstants.queryCity, new NetResponData<GetGooglePointByAdrBean>() {
             @Override
             public void responeData(GetGooglePointByAdrBean object) {
@@ -62,33 +75,68 @@ public class AddressLocationDes_Activity extends TitelBarAcitvity implements Vie
                 }
             }
         });
-        setContentView(R.layout.addresslocationdes_activity);
+        waypoint = getIntent().getIntExtra("AddressLocationMid_Activity", 0);
+        setContentView(R.layout.addresslocationmid_activity);
         initView();
         initSearch();
     }
-    private boolean isData = true;
-    private   RecyclerView rlAddress;
-    private void initView() {
-        rlAddress = (RecyclerView) findViewById(R.id.rl_address);
-        tv1 = (TextView) findViewById(R.id.addresstv1);
-        tv1.setText(ApiConstants.queryCity);
-        rlAddress.setLayoutManager(new LinearLayoutManager(this));
-        mysendRequestData();
-    }
-    @Override
-    public void onClick(View v) {
-    }
 
-    class AddressLocationAdapter extends RecyclerView.Adapter<AddressLocationHolder> {
-        List<GetHotAddressList> hotAddresses;
-        public AddressLocationAdapter(List<GetHotAddressList> hotAddressess) {
-            this.hotAddresses = hotAddressess;
+    public void switchCity(View view) {
+        if (ApiConstants.OrderlTpye == 2) {
+            if (OrderDetails.getOrderDetails().getId().equals(OrderDetails.getOrderDetails().getEndCityID())) {
+                return;
+            }
+        } else {
+            if (CarPriceSend.getCarPriceSend().getEndCityName().equals(PickupDetails.getOrderDetails().getArriveName())) {
+                return;
+            }
+        }
+        if (isStartCity) {
+            isStartCity = false;
+            if (ApiConstants.OrderlTpye == 2) {
+                tv1.setText(OrderDetails.getOrderDetails().getDescity());
+                sendRequestData(OrderDetails.getOrderDetails().getDescity());
+            } else {
+                tv1.setText(CarPriceSend.getCarPriceSend().getEndCityName());
+                sendRequestData(CarPriceSend.getCarPriceSend().getEndCityName());
+            }
+
+        } else {
+            isStartCity = true;
+            if (ApiConstants.OrderlTpye == 2) {
+                tv1.setText(OrderDetails.getOrderDetails().getCity());
+                sendRequestData(OrderDetails.getOrderDetails().getCity());
+            } else {
+                tv1.setText(PickupDetails.getOrderDetails().getArriveName());
+                sendRequestData(PickupDetails.getOrderDetails().getArriveName());
+            }
+
         }
 
+    }
+
+    private void initView() {
+        RecyclerView rlAddress = (RecyclerView) findViewById(R.id.rl_address);
+        tv1 = (TextView) findViewById(R.id.addresstv1);
+        if (ApiConstants.OrderlTpye == 2) {
+            tv1.setText(OrderDetails.getOrderDetails().getCity());
+
+        } else {
+            tv1.setText(PickupDetails.getOrderDetails().getArriveName());
+        }
+
+        addressLocationAdapter = new AddressLocationAdapter();
+        rlAddress.setLayoutManager(new LinearLayoutManager(this));
+        rlAddress.setAdapter(addressLocationAdapter);
+    }
+
+    AddressLocationAdapter addressLocationAdapter;
+
+    class AddressLocationAdapter extends RecyclerView.Adapter<AddressLocationHolder> {
         @Override
         public AddressLocationHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             AddressLocationHolder jourineyHolder = new AddressLocationHolder(
-                    LayoutInflater.from(AddressLocationDes_Activity.this).inflate(R.layout.sub_item_address, parent, false));
+                    LayoutInflater.from(AddressLocationMid_Activity.this).inflate(R.layout.sub_item_address, parent, false));
             return jourineyHolder;
         }
 
@@ -99,24 +147,23 @@ public class AddressLocationDes_Activity extends TitelBarAcitvity implements Vie
             holder.addresslv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    BaseApplication.finishActivity();
-                    if (isData) {
-                        //   String  value=OrderDetails.getOrderDetails().getCity()+"·"+hotAddresses.get(position).getAdrName();
-                        OrderDetails.getOrderDetails().setCitysub(tv1.getText().toString());
-                        OrderDetails.getOrderDetails().setStartCityId(hotAddresses.get(position).getCityId());
-                        OrderDetails.getOrderDetails().setStartAdrName(hotAddresses.get(position).getAdrName());
-                        OrderDetails.getOrderDetails().setStartAddress(hotAddresses.get(position).getAddress());
-                        OrderDetails.getOrderDetails().setStartLag(hotAddresses.get(position).getGdLat());
-                        OrderDetails.getOrderDetails().setStartLng(hotAddresses.get(position).getGdLng());
-                    } else {
-                        OrderDetails.getOrderDetails().setDescity(tv1.getText().toString());
-                        OrderDetails.getOrderDetails().setEndAdrName(hotAddresses.get(position).getAdrName());
-                        OrderDetails.getOrderDetails().setEndAddress(hotAddresses.get(position).getAddress());
-                        OrderDetails.getOrderDetails().setEndLag(hotAddresses.get(position).getGdLat());
-                        OrderDetails.getOrderDetails().setEndLng(hotAddresses.get(position).getGdLng());
+                    if (waypoint == 1) {
+                    //    WayPointOne.creOredeDetails();
+                        Logger.soutMessage(tv1.getText().toString() + hotAddresses.get(position).getAdrName());
+                        WayPointOne.getOrderDetails().setCityName(tv1.getText().toString());
+                        WayPointOne.getOrderDetails().setCityAdress(hotAddresses.get(position).getAddress());
+                        WayPointOne.getOrderDetails().setAdrName(hotAddresses.get(position).getAdrName());
+                        WayPointOne.getOrderDetails().setLatitudeGoogle(hotAddresses.get(position).getGdLat());
+                        WayPointOne.getOrderDetails().setLongitudeGoogle(hotAddresses.get(position).getGdLng());
+                    } else if (waypoint == 2) {
+               //         WayPointTwo.creOredeDetails();
+                        WayPointTwo.getOrderDetails().setCityName(tv1.getText().toString());
+                        WayPointTwo.getOrderDetails().setAdrName(hotAddresses.get(position).getAdrName());
+                        WayPointTwo.getOrderDetails().setCityAdress(hotAddresses.get(position).getAddress());
+                        WayPointTwo.getOrderDetails().setLatitudeGoogle(hotAddresses.get(position).getGdLat());
+                        WayPointTwo.getOrderDetails().setLongitudeGoogle(hotAddresses.get(position).getGdLng());
                     }
-
-
+                    BaseApplication.finishActivity();
                 }
             });
 
@@ -140,38 +187,19 @@ public class AddressLocationDes_Activity extends TitelBarAcitvity implements Vie
         }
     }
 
-
-    public void mysendRequestData() {
+    public void sendRequestData(String cityid) {
         new HotAddressList().netRequest(new NetResponArrayData<GetHotAddressList>() {
             @Override
-            public void responeData(final List<GetHotAddressList> values) {
-                if (values == null) {
-                    return;
-                }
+            public void responeData(List<GetHotAddressList> values) {
                 if (values.size() < 1) {
                     return;
                 }
-                if (ApiConstants.OrderlTpye == 4) {
-                    new Thread() {
-                        @Override
-                        public void run() {
-                            OrderDetails.getOrderDetails().setStartCityId(values.get(0).getCityId());
-                        }
-                    }.start();
-
-                }
-
-                new Handler(Looper.getMainLooper()).post(new Runnable() {
-                    @Override
-                    public void run() {
-                        tv1.setText(values.get(0).getCityName());
-                        AddressLocationAdapter addressLocationAdapter = new AddressLocationAdapter(values);
-                        rlAddress.setAdapter(addressLocationAdapter);
-                    }
-                });
-
+                hotAddresses.clear();
+                hotAddresses.addAll(values);
+                handler.sendEmptyMessage(0);
             }
-        });
+        }, cityid);
+
     }
 
     @Override
@@ -183,6 +211,7 @@ public class AddressLocationDes_Activity extends TitelBarAcitvity implements Vie
     private ListAdapter<GetGdList> listListAdapter;
     private List<GetGdList> getPoiCityLists;
     private LinearLayout mainlayout;
+
     public void initSearch() {
         mainlayout = (LinearLayout) findViewById(R.id.mainlayout);
         searchview = (SearchView) findViewById(R.id.searchview);
@@ -232,20 +261,20 @@ public class AddressLocationDes_Activity extends TitelBarAcitvity implements Vie
 
             @Override
             public void dataChoose(int position) {
-               /* BaseApplication.finishActivity();
-                if (isData) {
-                    OrderDetails.getOrderDetails().setCitysub(tv1.getText().toString());
-                    OrderDetails.getOrderDetails().setStartAdrName(getPoiCityLists.get(position).getName());
-                    OrderDetails.getOrderDetails().setStartAddress(getPoiCityLists.get(position).getFormatted_address());
-                    OrderDetails.getOrderDetails().setStartLag(getPoiCityLists.get(position).getLat());
-                    OrderDetails.getOrderDetails().setStartLng(getPoiCityLists.get(position).getLng());
-                } else {
-                    OrderDetails.getOrderDetails().setDescity(tv1.getText().toString());
-                    OrderDetails.getOrderDetails().setEndAdrName(getPoiCityLists.get(position).getName());
-                    OrderDetails.getOrderDetails().setEndAddress(getPoiCityLists.get(position).getFormatted_address());
-                    OrderDetails.getOrderDetails().setEndLag(getPoiCityLists.get(position).getLat());
-                    OrderDetails.getOrderDetails().setEndLng(getPoiCityLists.get(position).getLng());
-                }*/
+                /*if (waypoint == 1) {
+                    WayPointOne.getOrderDetails().setCityName(tv1.getText().toString());
+                    WayPointOne.getOrderDetails().setAdrName(getPoiCityLists.get(position).getName());
+                    WayPointOne.getOrderDetails().setCityAdress(getPoiCityLists.get(position).getFormatted_address());
+                    WayPointOne.getOrderDetails().setLatitudeGoogle(getPoiCityLists.get(position).getLat());
+                    WayPointOne.getOrderDetails().setLongitudeGoogle(getPoiCityLists.get(position).getLng());
+                } else if (waypoint == 2) {
+                    WayPointTwo.getOrderDetails().setCityName(tv1.getText().toString());
+                    WayPointTwo.getOrderDetails().setAdrName(getPoiCityLists.get(position).getName());
+                    WayPointTwo.getOrderDetails().setCityAdress(getPoiCityLists.get(position).getFormatted_address());
+                    WayPointTwo.getOrderDetails().setLatitudeGoogle(getPoiCityLists.get(position).getLat());
+                    WayPointTwo.getOrderDetails().setLongitudeGoogle(getPoiCityLists.get(position).getLng());
+                }
+                BaseApplication.finishActivity();*/
             }
 
         });
@@ -254,28 +283,25 @@ public class AddressLocationDes_Activity extends TitelBarAcitvity implements Vie
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                SnakebarUtils.showToast("position=="+position);
-                BaseApplication.finishActivity();
-                if (isData) {
-                    OrderDetails.getOrderDetails().setCitysub(tv1.getText().toString());
-                    OrderDetails.getOrderDetails().setStartAdrName(getPoiCityLists.get(position).getName());
-                    OrderDetails.getOrderDetails().setStartAddress(getPoiCityLists.get(position).getFormatted_address());
-                    OrderDetails.getOrderDetails().setStartLag(getPoiCityLists.get(position).getLat());
-                    OrderDetails.getOrderDetails().setStartLng(getPoiCityLists.get(position).getLng());
-                } else {
-                    OrderDetails.getOrderDetails().setDescity(tv1.getText().toString());
-                    OrderDetails.getOrderDetails().setEndAdrName(getPoiCityLists.get(position).getName());
-                    OrderDetails.getOrderDetails().setEndAddress(getPoiCityLists.get(position).getFormatted_address());
-                    OrderDetails.getOrderDetails().setEndLag(getPoiCityLists.get(position).getLat());
-                    OrderDetails.getOrderDetails().setEndLng(getPoiCityLists.get(position).getLng());
+                if (waypoint == 1) {
+                    WayPointOne.getOrderDetails().setCityName(tv1.getText().toString());
+                    WayPointOne.getOrderDetails().setAdrName(getPoiCityLists.get(position).getName());
+                    WayPointOne.getOrderDetails().setCityAdress(getPoiCityLists.get(position).getFormatted_address());
+                    WayPointOne.getOrderDetails().setLatitudeGoogle(getPoiCityLists.get(position).getLat());
+                    WayPointOne.getOrderDetails().setLongitudeGoogle(getPoiCityLists.get(position).getLng());
+                } else if (waypoint == 2) {
+                    WayPointTwo.getOrderDetails().setCityName(tv1.getText().toString());
+                    WayPointTwo.getOrderDetails().setAdrName(getPoiCityLists.get(position).getName());
+                    WayPointTwo.getOrderDetails().setCityAdress(getPoiCityLists.get(position).getFormatted_address());
+                    WayPointTwo.getOrderDetails().setLatitudeGoogle(getPoiCityLists.get(position).getLat());
+                    WayPointTwo.getOrderDetails().setLongitudeGoogle(getPoiCityLists.get(position).getLng());
                 }
+                BaseApplication.finishActivity();
             }
         });
     }
 
     public void showList(String s) {
-        if (s == null || s.length() < 1) {
-            return;
-        }
         String s1 = GsonUtlis.stringToJson(new QueryGdList(s, tv1.getText().toString()));
         Logger.soutMessage(s1);
         JsonArrayRequest jjs = new JsonArrayRequest(Request.Method.POST, ApiPost.getGdPoiList, s1, new Response.Listener<JSONArray>() {
@@ -290,7 +316,7 @@ public class AddressLocationDes_Activity extends TitelBarAcitvity implements Vie
                 }
                 if (jsonArray != null && jsonArray.size() > 0) {
                     getPoiCityLists.addAll(jsonArray);
-
+                    mainlayout.setVisibility(View.GONE);
                     listListAdapter.notifyDataSetChanged();
                 }
 
@@ -304,4 +330,10 @@ public class AddressLocationDes_Activity extends TitelBarAcitvity implements Vie
         getPoiCityLists.clear();
         listListAdapter.notifyDataSetChanged();
     }
+
+    @Override
+    public void handleManage(int value) {
+        addressLocationAdapter.notifyDataSetChanged();
+    }
+
 }

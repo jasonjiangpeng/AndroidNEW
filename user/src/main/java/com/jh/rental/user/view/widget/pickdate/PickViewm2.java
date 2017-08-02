@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.support.v4.view.GestureDetectorCompat;
 import android.util.AttributeSet;
@@ -21,13 +22,12 @@ import java.util.List;
  */
 
 public class PickViewm2 extends View {
-    private  float h1;/*字体高度*/
+    private  float fontheight1,fontheight2;/*字体高度*/
     private GestureDetectorCompat gestureDetectorCompat;
     private boolean orun=false;//设置启动
-    private String text;
     private Paint  paint,painc;
+    private Paint line;
     private List<Date>  list;
-    private int  fontsize=80;//字体大小
     public PickViewm2(Context context) {
         this(context,null);
     }
@@ -37,42 +37,69 @@ public class PickViewm2 extends View {
         Gesturelinster gesturelinster=new Gesturelinster();
         gestureDetectorCompat =new GestureDetectorCompat(context,gesturelinster);
         list=new ArrayList<>();
-        paint=getPain();
-        painc=getPain2();
-        h1=paint.descent()-paint.ascent();
-
+        line=getPaintLine();
     }
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.drawColor(Color.WHITE);
-        for (int i = 0; i <list.size() ; i++) {
-
-        }
         if (!orun){
             return;
         }
+        if (weight==0){
+            weight=getWidth();
+            height=getHeight()/3;
+            float a=height/2;
+            float b=(height*2)/5;
+            painc=getPain2(a);
+            paint=getPain(b);
+            fontheight1=painc.descent()-painc.ascent();
+            fontheight2=paint.descent()-paint.ascent();
+            fontheight1=(height-fontheight1)/2;
+            fontheight2=(height-fontheight2)/2;
+        }
+        RectF rect =new RectF(0,height,getWidth(),2*height);
+        canvas.drawRect(rect,line);
         for (int i = 0; i <3 ; i++) {
                 if (i==1){
-                    canvas.drawLine(0,h1,getWidth(),h1,paint);
-                    canvas.drawLine(0,h1*2,getWidth(),h1*2,paint);
-                    canvas.drawText(String.format("%1$d月%2$d日"+list.get(i).week,list.get(i).month,list.get(i).day),0,h1+i*h1,painc);
+                    String  result=String.format("%1$d月%2$d日"+list.get(i).week,list.get(i).month,list.get(i).day);
+                    float v = painc.measureText(result);
+                   float  c= (weight-v)/2;
+                    canvas.drawText(result,c,height+height*i-fontheight1,painc);
                 }else {
-                    canvas.drawText(String.format("%1$d月%2$d日"+list.get(i).week,list.get(i).month,list.get(i).day),0,h1+i*h1,paint);
+                    String  result=String.format("%1$d月%2$d日"+list.get(i).week,list.get(i).month,list.get(i).day);
+                    float v = paint.measureText(result);
+                    float  c= (weight-v)/2;
+                    canvas.drawText(result,c,height+height*i-fontheight2,paint);
                 }
         }
+
     }
 
-    public Paint  getPain(){
+    private int height;
+    private int weight;
+
+    public String getTime(){
+       // return String.format("%1$d月%2$d日"+list.get(1).week,list.get(1).month,list.get(1).day);
+        return DateUtils.getYear()+"-"+list.get(1).month+"-"+list.get(1).day;
+    }
+    public Paint  getPain(float size){
         Paint pa =new Paint();
-        pa.setColor(Color.BLACK);
-        pa.setTextSize(80);
+        pa.setColor(Color.parseColor("#9A9A9A"));
+        pa.setTextSize(size);
         pa.setAntiAlias(true);
         return pa;
     }
-    public Paint  getPain2(){
+    public Paint  getPain2(float size){
         Paint pa =new Paint();
-        pa.setColor(Color.BLUE);
-        pa.setTextSize(100);
+        pa.setColor(Color.parseColor("#424242"));
+        pa.setTextSize(size);
+        pa.setAntiAlias(true);
+        return pa;
+    }
+    public Paint  getPaintLine(){
+        Paint pa =new Paint();
+        pa.setStyle(Paint.Style.FILL);
+        pa.setColor(Color.parseColor("#eef7ff"));
         pa.setAntiAlias(true);
         return pa;
     }
@@ -88,11 +115,11 @@ public class PickViewm2 extends View {
         }
         @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-            if (distanceY>25){
-                postDelayed(rundown,10);
+            if (distanceY>20){
+                postDelayed(rundown,0);
             }
-            if (distanceY<-25){
-                postDelayed(runup,10);
+            if (distanceY<-20){
+                postDelayed(runup,0);
             }
             return super.onScroll(e1, e2, distanceX, distanceY);
         }
@@ -130,15 +157,6 @@ public class PickViewm2 extends View {
 
         }
     }
-
-    @Override
-    protected void onDetachedFromWindow() {
-        if (list!=null){
-            list.clear();
-        }
-        super.onDetachedFromWindow();
-    }
-
     public static void listSubOne(List<Date> list) { //-1
         if (list==null||list.size()<1){
             return;
@@ -152,8 +170,7 @@ public class PickViewm2 extends View {
             }
         }
     }
-    public void initData(String s){
-        text=s;
+    public void  initData(String s){
         orun=true;
     }
     public void startUi(String s){  //设置数据类型
@@ -163,7 +180,6 @@ public class PickViewm2 extends View {
                 list.clear();
              int b=DateUtils.getMontyDay();  //本月天数
                 int c=DateUtils.getDay();//获取今天
-
                 int  d=b-c;
                 if (d>0){
                 }

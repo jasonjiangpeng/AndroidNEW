@@ -1,36 +1,46 @@
 package com.jh.rental.user.view.adapter;
 
-import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.jh.rental.user.R;
+import com.jh.rental.user.utils.jason.BaseContext;
+import com.jh.rental.user.view.fragment.home.DriverStoryFragment;
+import com.jh.rental.user.view.fragment.home.HotDestinationsFragment;
+import com.jh.rental.user.view.fragment.home.HotRouteFragment;
+import com.jh.rental.user.view.fragment.home.UserVoiceFragment;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Homeadapter extends FragmentPagerAdapter {
 
-    private List<Fragment> list_fragment;
-    private List<String> list_Title;
+    List<Fragment> fragmentList = new ArrayList<>();
+    // 标题数组
+    String[] titles = {BaseContext.getResValue(R.string.HotDestinations), BaseContext.getResValue(R.string.HotRoute),BaseContext.getResValue(R.string.DriverStory),BaseContext.getResValue(R.string.UserVoice)};
 
-    public Homeadapter(FragmentManager fm,List<Fragment> list_fragment,List<String> list_Title) {
+    public Homeadapter(FragmentManager fm) {
         super(fm);
-        this.list_fragment = list_fragment;
-        this.list_Title = list_Title;
-    }
-
-    @Override
-    public Fragment getItem(int position) {
-        return list_fragment.get(position);
-    }
-
-    @Override
-    public int getCount() {
-        return list_fragment.size();
+        fragmentList.add(new HotDestinationsFragment());
+        fragmentList.add(new HotRouteFragment());
+        fragmentList.add(new DriverStoryFragment());
+        fragmentList.add(new UserVoiceFragment());
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return list_Title.get(position);
+        return titles[position];
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        return fragmentList.get(position);
+    }
+
+    @Override
+    public int getCount() {
+        return fragmentList.size();
     }
 }
 

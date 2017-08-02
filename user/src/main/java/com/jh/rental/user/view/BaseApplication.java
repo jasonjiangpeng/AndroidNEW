@@ -3,7 +3,12 @@ package com.jh.rental.user.view;
 import android.app.Activity;
 import android.app.Application;
 
+import com.jh.rental.user.bean.OrderDetails;
+import com.jh.rental.user.bean.PickupDetails;
+import com.jh.rental.user.bean.ShareCirle;
 import com.jh.rental.user.model.HttpVolley;
+import com.jh.rental.user.presenter.huanxin.HxChat;
+import com.jh.rental.user.presenter.qiniu.QnUpDown;
 import com.jh.rental.user.utils.jason.BaseContext;
 import com.zhy.autolayout.config.AutoLayoutConifg;
 
@@ -25,9 +30,13 @@ public class BaseApplication extends Application {
         }
         if (BaseContext.context==null){
             BaseContext.context=BaseApplication.this.getApplicationContext();
+            HxChat.initContext(BaseContext.context);
+            QnUpDown.init();
         }
+
         AutoLayoutConifg.getInstance().useDeviceSize();
     }
+
     public  static void finishActivity(){
            activities.pop().finish();
     }
@@ -38,7 +47,7 @@ public class BaseApplication extends Application {
                 }
                 activities.push(context);
     }
-    public static Activity currentActivity(){
+    public static synchronized Activity currentActivity(){
 
                 return activities.lastElement();
     }
@@ -51,15 +60,33 @@ public class BaseApplication extends Application {
              activities.get(i).finish();
         }
         activities=null;
+      OrderDetails.destroy();
+        PickupDetails.destroy();
         System.exit(0);
     }
     public static void getMainActivity(){
         if (activities==null){
             return;
         }
-        for (int i = activities.size()-1; i>0 ; i--) {
+        for (int i = activities.size()-1; i>1 ; i--) {
             activities.pop().finish();
         }
+    }
+    public static void getLoginActivity(){
+        if (activities==null){
+            return;
+        }
+        for (int i = activities.size()-1; i>0 ; i--) {
+            if (!activities.lastElement().getClass().getName().equals("com.jh.rental.user.MainActivity")){
+                activities.pop().finish();
+            }else {
+                activities.lastElement();
+                break;
+            }
+
+        }
+
+
     }
 
 }

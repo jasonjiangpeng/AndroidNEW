@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 
 import com.jh.rental.user.R;
 
-import static com.jh.rental.user.other.apputilss.utilcode.utils.Utils.getContext;
+
 
 /**
  * Created by 俊辉出行 on 2017/6/9.
@@ -24,7 +24,7 @@ public class ChooseAdapter1 extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView==null){
-            convertView= LayoutInflater.from(getContext()).inflate(R.layout.item_text,null);
+            convertView= LayoutInflater.from(mContext).inflate(R.layout.item_text,null);
         }
         return convertView;
     }

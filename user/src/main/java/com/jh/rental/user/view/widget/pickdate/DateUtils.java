@@ -15,7 +15,6 @@ public class DateUtils {
         return calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
     }
     public static String  getMonthDay(int year,int month,int day) {  // 获取年月日的星期几
-
         Calendar calendar=Calendar.getInstance();
         int a=month-1;
         if (a>11){

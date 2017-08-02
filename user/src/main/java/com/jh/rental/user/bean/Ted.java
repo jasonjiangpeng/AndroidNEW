@@ -1,5 +1,7 @@
 package com.jh.rental.user.bean;
 
+
+
 import java.io.File;
 
 /**
@@ -7,9 +9,10 @@ import java.io.File;
  */
 
 public class Ted {
-    static	String  string="E:\\work\\src\\android\\AndroidApp\\user\\src\\main\\res\\drawable-xxxhdpi";
+    static	String  string="E:\\work\\src\\android\\AndroidApp\\user\\src\\main\\res\\scenphoto1-xxxhdpi";
     public static void main(String[] asr){
         File file =new File(string);
+
         int  a=0;
         if (file.exists()) {
             File[] listFiles = file.listFiles();

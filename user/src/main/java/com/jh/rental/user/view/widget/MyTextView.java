@@ -53,10 +53,7 @@ public class MyTextView extends View {
         float  a1=paint.measureText("￥");
         float  b1=paint.measureText(String.valueOf(String.valueOf(price)));
         float  c1=getPaint().measureText("/天");
-
-
         canvas.drawText("￥",w/2+a1+b1/2,h/2,paint);
-
     }
     protected Paint  getPaint(int size,int color){
         Paint  paint=new Paint();

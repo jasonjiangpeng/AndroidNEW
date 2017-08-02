@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-import com.jh.rental.user.other.apputilss.utilcode.utils.Utils;
+
 
 /**
  * <pre>
@@ -95,8 +95,7 @@ public class KeyboardUtils {
         edit.setFocusable(true);
         edit.setFocusableInTouchMode(true);
         edit.requestFocus();
-        InputMethodManager imm = (InputMethodManager) Utils.getContext()
-                .getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager imm = (InputMethodManager) BaseContext.context.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(edit, 0);
     }
 
